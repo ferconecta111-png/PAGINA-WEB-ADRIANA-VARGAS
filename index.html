@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adriana Vargas — Sexóloga y Terapeuta Reiki</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+  :root {
+    --bg: #fbf4ef;
+    --surface: #ffffff;
+    --text: #2d2129;
+    --text-faint: #7a6a72;
+    --border: #ecdfd8;
+    --terracota: #c1694a;
+    --terracota-deep: #9c4f36;
+    --terracota-tint: #f4e3da;
+    --ciruela: #5c3049;
+    --ciruela-deep: #3e1f32;
+    --ciruela-soft: #efe3ea;
+    --cream: #fffaf5;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: "Manrope", -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.65; -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  @media (max-width: 640px) { .wrap { padding: 0 20px; } }
+  h1, h2, h3 { font-family: "Fraunces", Georgia, serif; text-wrap: balance; margin: 0; font-weight: 600; }
+
+  /* HERO */
+  .hero {
+    background: radial-gradient(circle at 85% -10%, rgba(193,105,74,0.16), transparent 55%), linear-gradient(175deg, var(--cream), var(--bg) 140%);
+    padding: 72px 0 56px; position: relative; overflow: hidden;
+  }
+  @media (max-width: 720px) { .hero { padding: 40px 0 32px; } }
+  .hero-layout { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
+  @media (max-width: 860px) { .hero-layout { grid-template-columns: 1fr; gap: 32px; } }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--terracota-deep); margin-bottom: 20px;
+  }
+  .eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--terracota); display: inline-block; }
+  .hero h1 { font-size: clamp(32px, 4.6vw, 52px); line-height: 1.18; color: var(--ciruela-deep); max-width: 15ch; }
+  .hero h1 em { font-style: normal; color: var(--terracota); }
+  .hero p.dek { font-size: 18px; color: var(--text-faint); max-width: 46ch; margin-top: 22px; }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: clamp(26px, 7vw, 30px); max-width: none; }
+    .hero p.dek { font-size: 15.5px; margin-top: 14px; }
+  }
+  .hero-photo-wrap { position: relative; display: flex; justify-content: center; }
+  .hero-photo {
+    width: min(360px, 80vw); aspect-ratio: 1/1; border-radius: 50%; object-fit: cover;
+    border: 8px solid var(--cream); box-shadow: 0 30px 60px -20px rgba(60,25,45,0.35);
+    position: relative; z-index: 1;
+  }
+  .hero-ring {
+    position: absolute; inset: -18px; border-radius: 50%; border: 1.5px dashed rgba(193,105,74,0.4);
+    animation: girar 60s linear infinite;
+  }
+  @keyframes girar { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .hero-ring { animation: none; } }
+
+  .btn-hero {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: linear-gradient(155deg, var(--terracota), var(--terracota-deep));
+    color: #fff; font-family: "Manrope", sans-serif; font-weight: 800; font-size: 15.5px;
+    padding: 16px 32px; border-radius: 999px; text-decoration: none; margin-top: 30px;
+    box-shadow: 0 14px 26px -8px rgba(156,79,54,0.55);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 18px 32px -8px rgba(156,79,54,0.6); }
+
+  /* BANDS */
+  .band { padding: 68px 0; }
+  @media (max-width: 640px) { .band { padding: 42px 0; } }
+  .band.ciruela { background: linear-gradient(170deg, var(--ciruela-deep), var(--ciruela) 130%); color: #fbf0f6; }
+  .band.ciruela h2, .band.ciruela .eyebrow-sm { color: #fff; }
+  .band.tint { background: linear-gradient(170deg, var(--ciruela-soft), var(--bg) 140%); }
+  .band.cream { background: var(--cream); }
+
+  .eyebrow-sm {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 12px; color: var(--terracota-deep);
+  }
+  .eyebrow-sm .dash { width: 18px; height: 2px; background: currentColor; display: inline-block; }
+  h2.tit { font-size: 30px; margin-bottom: 8px; color: var(--ciruela-deep); }
+  .band.ciruela h2.tit { color: #fff; }
+  @media (max-width: 480px) { h2.tit { font-size: 24px; } }
+  p.lede { color: var(--text-faint); font-size: 16px; max-width: 60ch; margin: 0 0 36px; }
+  .band.ciruela p.lede { color: #e9d7e3; }
+
+  /* SOBRE ELLA */
+  .bio-layout { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: center; }
+  @media (max-width: 780px) { .bio-layout { grid-template-columns: 1fr; } }
+  .bio-photo { width: 100%; max-width: 320px; margin: 0 auto; aspect-ratio: 4/5; border-radius: 28px; object-fit: cover; box-shadow: 0 24px 48px -16px rgba(60,25,45,0.3); }
+  .bio-card p { font-size: 16px; margin: 0 0 16px; }
+  .bio-card b { color: var(--terracota-deep); }
+  .formacion { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+  .formacion span {
+    font-size: 12.5px; font-weight: 600; background: var(--terracota-tint); color: var(--terracota-deep);
+    padding: 8px 14px; border-radius: 999px;
+  }
+  .quote-meb {
+    margin-top: 28px; padding: 22px 26px; background: var(--surface); border-left: 3px solid var(--terracota);
+    border-radius: 4px 16px 16px 4px; font-style: italic; color: var(--text); font-size: 15px;
+    box-shadow: 0 10px 24px -12px rgba(60,25,45,0.18);
+  }
+  .quote-meb footer { margin-top: 10px; font-style: normal; font-size: 12.5px; font-weight: 700; color: var(--terracota-deep); }
+
+  /* PARA QUIEN */
+  .lista-para {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; list-style: none; padding: 0; margin: 0;
+  }
+  @media (max-width: 640px) { .lista-para { grid-template-columns: 1fr; } }
+  .lista-para li {
+    display: flex; gap: 12px; align-items: flex-start; padding: 18px 20px; font-size: 15px;
+    background: rgba(255,255,255,0.08); border-radius: 16px; border: 1px solid rgba(255,255,255,0.14);
+  }
+  .lista-para .punto { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--terracota); margin-top: 7px; }
+
+  /* METODOLOGIA */
+  .metodo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .metodo-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .metodo-grid { grid-template-columns: 1fr; } }
+  .metodo-card {
+    background: var(--surface); border-radius: 20px; padding: 26px 22px; text-align: left;
+    box-shadow: 0 2px 4px rgba(60,25,45,0.06), 0 16px 30px -14px rgba(60,25,45,0.16);
+  }
+  .metodo-card .num { font-family: "Fraunces", serif; font-size: 26px; color: var(--terracota); margin-bottom: 10px; }
+  .metodo-card h3 { font-size: 16px; color: var(--ciruela-deep); margin-bottom: 8px; }
+  .metodo-card p { font-size: 13.5px; color: var(--text-faint); margin: 0; }
+
+  /* TESTIMONIOS */
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 900px) { .testi-grid { grid-template-columns: 1fr; } }
+  .testi { background: var(--surface); border-radius: 20px; padding: 26px; box-shadow: 0 2px 4px rgba(60,25,45,0.06), 0 16px 30px -14px rgba(60,25,45,0.14); }
+  .testi p.txt { font-family: "Fraunces", serif; font-style: italic; font-size: 16px; color: var(--ciruela-deep); margin: 0 0 16px; line-height: 1.5; }
+  .testi p.who { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--terracota-deep); margin: 0; }
+  .testi p.who span { color: var(--text-faint); font-weight: 500; text-transform: none; letter-spacing: 0; }
+
+  /* PAQUETES */
+  .pkg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 760px; margin: 0 auto; }
+  @media (max-width: 640px) { .pkg-grid { grid-template-columns: 1fr; } }
+  .pkg-card {
+    background: var(--surface); border-radius: 22px; padding: 30px 26px; text-align: center;
+    border: 1px solid var(--border); box-shadow: 0 20px 40px -20px rgba(60,25,45,0.2);
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .pkg-card.destacado { border: 2px solid var(--terracota); position: relative; }
+  .pkg-card .badge {
+    position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+    background: var(--terracota); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase; padding: 5px 14px; border-radius: 999px;
+  }
+  .pkg-card h3 { font-size: 20px; color: var(--ciruela-deep); margin-bottom: 6px; }
+  .pkg-card p.desc { font-size: 14px; color: var(--text-faint); margin: 0 0 20px; }
+  .btn-pkg {
+    display: inline-flex; align-items: center; gap: 8px; width: 100%; justify-content: center;
+    background: linear-gradient(155deg, var(--terracota), var(--terracota-deep));
+    color: #fff; font-weight: 800; font-size: 14.5px; padding: 14px 20px; border-radius: 999px;
+    text-decoration: none; box-shadow: 0 10px 20px -8px rgba(156,79,54,0.5);
+    transition: transform 0.2s;
+  }
+  .btn-pkg:hover { transform: translateY(-2px); }
+  .btn-pkg-outline {
+    display: inline-flex; align-items: center; gap: 8px; width: 100%; justify-content: center;
+    background: transparent; color: var(--ciruela-deep); font-weight: 700; font-size: 14.5px;
+    padding: 13px 20px; border-radius: 999px; text-decoration: none; border: 1.5px solid var(--ciruela);
+    transition: transform 0.2s, background 0.2s;
+  }
+  .btn-pkg-outline:hover { background: var(--ciruela-soft); transform: translateY(-2px); }
+
+  /* CTA FINAL */
+  .cta-final {
+    background: linear-gradient(135deg, var(--ciruela-deep), #2a1420);
+    border-radius: 28px; padding: 56px 32px; text-align: center; color: #fbf0f6;
+  }
+  @media (max-width: 480px) { .cta-final { padding: 36px 22px; border-radius: 20px; } }
+  .cta-final h2 { color: #fff; font-size: 28px; margin-bottom: 14px; }
+  @media (max-width: 480px) { .cta-final h2 { font-size: 22px; } }
+  .cta-final p { color: #e9d7e3; font-size: 15.5px; max-width: 48ch; margin: 0 auto 28px; }
+
+  footer.note {
+    padding: 28px 0 48px; text-align: center; font-size: 12.5px; color: var(--text-faint);
+  }
+  footer.note a { color: var(--text-faint); }
+
+  @media (max-width: 640px) {
+    .btn-hero, .btn-pkg, .btn-pkg-outline { font-size: 14.5px; padding: 15px 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap hero-layout">
+      <div>
+        <p class="eyebrow">Sexología · Sexualidad consciente</p>
+        <h1>Tu energía sexual también se puede <em>sanar, equilibrar y expandir</em>.</h1>
+        <p class="dek">Acompaño a mujeres y hombres a liberar bloqueos, romper culpas heredadas y reconectar con su placer — desde la sexología clínica, el Reiki y la sexualidad consciente.</p>
+        <a class="btn-hero" href="https://wa.link/j8s8eg" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path fill="#fff" d="M12.02 2C6.5 2 2.02 6.48 2.02 12c0 1.9.53 3.68 1.44 5.2L2 22l4.94-1.4A9.95 9.95 0 0 0 12.02 22C17.53 22 22 17.52 22 12S17.53 2 12.02 2Zm5.4 14.1c-.23.65-1.15 1.2-1.9 1.36-.5.1-1.16.19-3.38-.72-2.84-1.18-4.66-4.06-4.8-4.25-.14-.19-1.15-1.53-1.15-2.92 0-1.39.72-2.07.98-2.35.23-.25.5-.32.67-.32h.48c.16 0 .37-.06.58.44.23.55.78 1.94.85 2.08.07.14.11.3.02.48-.09.19-.14.3-.28.46-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.25.09 1.58.75 1.85.88.27.14.45.2.51.32.07.12.07.68-.16 1.33Z"/></svg>
+          Agenda tu primera sesión
+        </a>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-ring"></div>
+        <img class="hero-photo" src="adriana-foto.webp" alt="Adriana Vargas, sexóloga">
+      </div>
+    </div>
+  </header>
+
+  <section class="band cream">
+    <div class="wrap">
+      <p class="eyebrow-sm"><span class="dash"></span>Antes de agendar</p>
+      <h2 class="tit">Quiero que me conozcas</h2>
+      <p class="lede">Elegir con quién trabajas tu sexualidad es una decisión íntima — importa tanto la formación como la energía con la que te acompañan.</p>
+      <div class="bio-layout">
+        <img class="bio-photo" src="adriana-foto.webp" alt="Adriana Vargas">
+        <div class="bio-card">
+          <p><b>Adriana Vargas</b> es sexóloga especialista en sexualidad consciente. Su formación combina lo clínico y lo energético: <b>Certificada en Sexología Clínica y Terapia de Pareja</b>, <b>Certificada en Sexología y Sexualidad Humana por la universidad EUNEIZ</b>, formada en <b>Sexualidad Tántrica</b>, <b>Terapeuta Reiki</b> y graduada en <b>PNL (Programación Neurolingüística)</b>.</p>
+          <p>Te acompaña a equilibrar tu energía sexual, liberar bloqueos energéticos y potenciar tu alquimia interna para que disfrutes de una vida en plenitud, le des vida a tus proyectos y goces de una sexualidad consciente.</p>
+          <div class="formacion">
+            <span>Sexología Clínica</span>
+            <span>Terapia de Pareja</span>
+            <span>Sexualidad Tántrica</span>
+            <span>Terapeuta Reiki</span>
+            <span>PNL</span>
+          </div>
+          <div class="quote-meb">
+            "Adriana es una mujer conectada con el disfrute de vivir, femenina, segura de sí misma — el ejemplo perfecto de lo que en psicología llamamos una personalidad 'sexual transmisora'. He podido comprobar su transformación personal, y por su proceso y su esencia, es la persona ideal para acompañarte a liberar y potenciar toda la energía sexual presente en tu interior."
+            <footer>— María Elena Badillo</footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band ciruela">
+    <div class="wrap">
+      <p class="eyebrow-sm"><span class="dash" style="background:#fff"></span>¿Es esto para ti?</p>
+      <h2 class="tit">Trabajamos juntas si te identificas con...</h2>
+      <p class="lede">No hace falta tener "un problema grave" para merecer acompañamiento — la sexualidad consciente también es prevención y expansión.</p>
+      <ul class="lista-para">
+        <li><span class="punto"></span>Sientes dificultad para conectar con tu placer o para excitarte plenamente.</li>
+        <li><span class="punto"></span>Vives disfunciones sexuales: vaginismo, disfunción eréctil, eyaculación precoz, anorgasmia.</li>
+        <li><span class="punto"></span>Notas falta de deseo, o por el contrario, hipersexualidad que no logras entender.</li>
+        <li><span class="punto"></span>Cargas culpas o creencias limitantes heredadas sobre la sexualidad.</li>
+        <li><span class="punto"></span>Atravesaste un abuso sexual y sientes que aún necesita sanar.</li>
+        <li><span class="punto"></span>Sientes bloqueos energéticos que también se reflejan en tu economía y tus proyectos.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band tint">
+    <div class="wrap">
+      <p class="eyebrow-sm"><span class="dash"></span>Cómo trabajamos</p>
+      <h2 class="tit">Un acompañamiento integral</h2>
+      <p class="lede">Cuerpo, energía y mente — la sexualidad se sana desde los tres lugares a la vez.</p>
+      <div class="metodo-grid">
+        <div class="metodo-card">
+          <p class="num">01</p>
+          <h3>Escucha sin juicio</h3>
+          <p>Un espacio seguro para nombrar lo que nunca has podido decir en voz alta.</p>
+        </div>
+        <div class="metodo-card">
+          <p class="num">02</p>
+          <h3>Diagnóstico clínico y energético</h3>
+          <p>Entendemos qué pasa desde la sexología clínica y desde el cuerpo energético.</p>
+        </div>
+        <div class="metodo-card">
+          <p class="num">03</p>
+          <h3>Liberación de bloqueos</h3>
+          <p>Herramientas de Reiki, PNL y sexualidad tántrica para soltar culpas y creencias.</p>
+        </div>
+        <div class="metodo-card">
+          <p class="num">04</p>
+          <h3>Sexualidad consciente</h3>
+          <p>Reconectas con tu placer y tu energía vital desde la plenitud, no desde el miedo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band cream">
+    <div class="wrap">
+      <p class="eyebrow-sm"><span class="dash"></span>Lo que dicen quienes ya vivieron el proceso</p>
+      <h2 class="tit">Testimonios reales</h2>
+      <p class="lede">&nbsp;</p>
+      <div class="testi-grid">
+        <div class="testi">
+          <p class="txt">"He conectado full con ella y su guía desde el primer momento. He aprendido a usar poco a poco herramientas que han dado sentido y dirección a lo que quiero lograr y sanar. Súper recomendado."</p>
+          <p class="who">Isabel Barrero <span>· Estados Unidos</span></p>
+        </div>
+        <div class="testi">
+          <p class="txt">"Súper recomendada, una experiencia muy poderosa. Tiene una energía muy acogedora — gracias por ayudarme a entender tantas cosas y a evolucionar."</p>
+          <p class="who">Yudi Meneses <span>· Colombia</span></p>
+        </div>
+        <div class="testi">
+          <p class="txt">"Las sesiones fueron muy poderosas, reveladoras. Rompí mitos, me di cuenta de muchas creencias limitantes que tenía acerca de la sexualidad. Abriste mi mente y las herramientas me han funcionado."</p>
+          <p class="who">Lucy Portillo <span>· Honduras</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band tint" id="agenda">
+    <div class="wrap">
+      <p class="eyebrow-sm" style="text-align:center; justify-content:center; width:100%"><span class="dash"></span>Agenda tu sesión</p>
+      <h2 class="tit" style="text-align:center">Elige cómo quieres empezar</h2>
+      <p class="lede" style="text-align:center; margin-left:auto; margin-right:auto">Escríbeme directo por WhatsApp — te respondo personalmente para agendar tu horario.</p>
+      <div class="pkg-grid">
+        <div class="pkg-card">
+          <h3>Sesión individual</h3>
+          <p class="desc">Un primer encuentro para nombrar lo que sientes y empezar tu proceso.</p>
+          <a class="btn-pkg-outline" href="https://wa.link/j8s8eg" target="_blank" rel="noopener">Agendar por WhatsApp</a>
+        </div>
+        <div class="pkg-card destacado">
+          <span class="badge">Más recomendado</span>
+          <h3>Paquete de 3 sesiones</h3>
+          <p class="desc">El proceso completo: diagnóstico, liberación de bloqueos y sexualidad consciente.</p>
+          <a class="btn-pkg" href="https://wa.link/1qmz32" target="_blank" rel="noopener">Agendar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band cream">
+    <div class="wrap">
+      <div class="cta-final">
+        <h2>¿Lista para reconectar con tu placer?</h2>
+        <p>No tienes que cargar sola con esto. Escríbeme y te cuento cómo trabajamos juntas, a tu ritmo y sin juicios.</p>
+        <a class="btn-hero" href="https://wa.link/j8s8eg" target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="note">
+    <div class="wrap">
+      <p>Adriana Vargas — Sexóloga, Terapeuta Reiki y Especialista en Sexualidad Consciente.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
