@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ferconecta111-png.github.io/PAGINA-WEB-ADRIANA-VARGAS/sitemap.xml
