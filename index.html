@@ -315,18 +315,20 @@
     <div class="wrap">
       <p class="eyebrow-sm" style="text-align:center; justify-content:center; width:100%"><span class="dash"></span>Agenda tu sesión</p>
       <h2 class="tit" style="text-align:center">Elige cómo quieres empezar</h2>
-      <p class="lede" style="text-align:center; margin-left:auto; margin-right:auto">Escríbeme directo por WhatsApp — te respondo personalmente para agendar tu horario.</p>
+      <p class="lede" style="text-align:center; margin-left:auto; margin-right:auto">Agenda y paga en línea de forma segura, o escríbeme directo por WhatsApp si prefieres coordinar antes.</p>
       <div class="pkg-grid">
         <div class="pkg-card">
           <h3>Sesión individual</h3>
           <p class="desc">Un primer encuentro para nombrar lo que sientes y empezar tu proceso.</p>
-          <a class="btn-pkg-outline" href="https://wa.me/573003866079?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Deseo%20una%20sesi%C3%B3n%20con%20la%20sex%C3%B3loga%20y%20reikista%20Adriana%20Vargas%2C%20por%20favor" target="_blank" rel="noopener">Agendar por WhatsApp</a>
+          <p style="font-family:'Fraunces',serif; font-size:22px; color:var(--ciruela-deep); margin:10px 0;">$61 USD</p>
+          <a class="btn-pkg-outline" href="https://wa.me/573003866079?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Deseo%20una%20sesi%C3%B3n%20con%20la%20sex%C3%B3loga%20y%20reikista%20Adriana%20Vargas%2C%20por%20favor" data-producto-bold="adriana_individual" target="_blank" rel="noopener">Agendar y pagar</a>
         </div>
         <div class="pkg-card destacado">
           <span class="badge">Más recomendado</span>
           <h3>Paquete de 3 sesiones</h3>
           <p class="desc">El proceso completo: diagnóstico, liberación de bloqueos y sexualidad consciente.</p>
-          <a class="btn-pkg" href="https://wa.me/573003866079?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Deseo%20un%20paquete%20de%203%20sesiones%20con%20la%20sex%C3%B3loga%20y%20reikista%20Adriana%20Vargas%2C%20por%20favor" target="_blank" rel="noopener">Agendar por WhatsApp</a>
+          <p style="font-family:'Fraunces',serif; font-size:22px; color:var(--ciruela-deep); margin:10px 0;">$183 USD</p>
+          <a class="btn-pkg" href="https://wa.me/573003866079?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Deseo%20un%20paquete%20de%203%20sesiones%20con%20la%20sex%C3%B3loga%20y%20reikista%20Adriana%20Vargas%2C%20por%20favor" data-producto-bold="adriana_paquete_x3" target="_blank" rel="noopener">Agendar y pagar</a>
         </div>
       </div>
     </div>
@@ -347,6 +349,108 @@
       <p>Adriana Vargas — Sexóloga, Terapeuta Reiki y Especialista en Sexualidad Consciente.</p>
     </div>
   </footer>
+
+  <div id="modal-pago" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(45,33,41,.55); align-items:center; justify-content:center; padding:16px;">
+    <div style="background:#fffaf6; border-radius:16px; max-width:420px; width:100%; padding:28px 24px; position:relative; font-family:'Manrope',sans-serif;">
+      <button type="button" id="modal-pago-cerrar" aria-label="Cerrar" style="position:absolute; top:12px; right:14px; background:none; border:none; font-size:22px; line-height:1; cursor:pointer; color:#7a6a72;">&times;</button>
+      <h3 style="margin:0 0 6px 0; font-size:19px; color:#2d2129; font-family:'Fraunces',serif;">Antes de pagar</h3>
+      <p style="margin:0 0 16px 0; font-size:13.5px; color:#7a6a72;">Déjanos tu nombre y WhatsApp por si necesitamos contactarte sobre tu pago.</p>
+
+      <div id="modal-pago-form">
+        <label style="display:block; font-size:13px; color:#2d2129; margin-bottom:4px;">Nombre completo</label>
+        <input id="modal-pago-nombre" type="text" style="width:100%; box-sizing:border-box; padding:10px 12px; border:1px solid #ecdfd8; border-radius:10px; margin-bottom:12px; font-size:15px;" />
+        <label style="display:block; font-size:13px; color:#2d2129; margin-bottom:4px;">WhatsApp (con código de país)</label>
+        <input id="modal-pago-telefono" type="tel" placeholder="+57 300 1234567" style="width:100%; box-sizing:border-box; padding:10px 12px; border:1px solid #ecdfd8; border-radius:10px; margin-bottom:4px; font-size:15px;" />
+        <p id="modal-pago-error" style="display:none; color:#c1694a; font-size:12.5px; margin:4px 0 0 0;"></p>
+        <button type="button" id="modal-pago-continuar" style="width:100%; margin-top:16px; padding:12px; border:none; border-radius:10px; background:#c1694a; color:#fffaf6; font-weight:700; font-size:15px; cursor:pointer;">Continuar a pagar</button>
+      </div>
+
+      <div id="modal-pago-fallback" style="display:none;">
+        <p style="font-size:14px; color:#2d2129; margin:0;">Se abrió una ventana nueva para pagar con tarjeta. Si tu banco la rechaza, escríbenos por WhatsApp y te ayudamos:</p>
+        <a href="https://wa.me/573003866079?text=Hola%20Adriana%2C%20mi%20banco%20rechaz%C3%B3%20el%20pago%2C%20%C2%BFme%20ayudas%3F" target="_blank" rel="noopener" style="display:block; text-align:center; width:100%; box-sizing:border-box; margin-top:14px; padding:12px; border:1px solid #6b2f6e; border-radius:10px; background:#fff; color:#6b2f6e; font-weight:700; font-size:15px; text-decoration:none;">Escribir por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Los links de pago de Bold son de un solo uso — cada clic pide uno
+    // nuevo a panel-terapeutas. Antes de mandar a pagar, pedimos
+    // nombre+teléfono en un modal, para tener el contacto pase lo que pase
+    // con el pago. Mismo patrón que el sitio de Elizabeth (23-sep-2026).
+    (function () {
+      var ENDPOINT_BOLD = 'https://panel-terapeutas.vercel.app/api/public/bold-link';
+
+      var modal = document.getElementById('modal-pago');
+      var form = document.getElementById('modal-pago-form');
+      var fallback = document.getElementById('modal-pago-fallback');
+      var inputNombre = document.getElementById('modal-pago-nombre');
+      var inputTelefono = document.getElementById('modal-pago-telefono');
+      var error = document.getElementById('modal-pago-error');
+      var btnContinuar = document.getElementById('modal-pago-continuar');
+      var btnCerrar = document.getElementById('modal-pago-cerrar');
+
+      var productoActual = null;
+      var hrefRespaldo = null;
+
+      function cerrarModal() {
+        modal.style.display = 'none';
+        form.style.display = 'block';
+        fallback.style.display = 'none';
+        error.style.display = 'none';
+        btnContinuar.disabled = false;
+        btnContinuar.textContent = 'Continuar a pagar';
+      }
+
+      function pedirLink(endpoint, datos) {
+        return fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(datos),
+        }).then(function (res) { return res.json(); });
+      }
+
+      document.querySelectorAll('[data-producto-bold]').forEach(function (btn) {
+        btn.addEventListener('click', function (ev) {
+          ev.preventDefault();
+          productoActual = btn.getAttribute('data-producto-bold');
+          hrefRespaldo = btn.getAttribute('href');
+          modal.style.display = 'flex';
+        });
+      });
+
+      btnCerrar.addEventListener('click', cerrarModal);
+      modal.addEventListener('click', function (ev) { if (ev.target === modal) cerrarModal(); });
+
+      btnContinuar.addEventListener('click', function () {
+        var nombre = inputNombre.value.trim();
+        var telefono = inputTelefono.value.trim();
+        if (!nombre || !telefono) {
+          error.textContent = 'Por favor completa tu nombre y WhatsApp.';
+          error.style.display = 'block';
+          return;
+        }
+        error.style.display = 'none';
+        btnContinuar.disabled = true;
+        btnContinuar.textContent = 'Preparando tu pago…';
+
+        pedirLink(ENDPOINT_BOLD, { producto: productoActual, nombre: nombre, telefono: telefono })
+          .then(function (data) {
+            if (data && data.url) {
+              window.open(data.url, '_blank', 'noopener');
+            } else {
+              window.open(hrefRespaldo, '_blank', 'noopener');
+            }
+          })
+          .catch(function () {
+            window.open(hrefRespaldo, '_blank', 'noopener');
+          })
+          .finally(function () {
+            form.style.display = 'none';
+            fallback.style.display = 'block';
+          });
+      });
+    })();
+  </script>
 
 </body>
 </html>
