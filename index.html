@@ -43,10 +43,11 @@
   .hero-layout { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
   @media (max-width: 860px) { .hero-layout { grid-template-columns: 1fr; gap: 32px; } }
   .eyebrow {
-    display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700;
     letter-spacing: 0.14em; text-transform: uppercase; color: var(--terracota-deep); margin-bottom: 20px;
   }
-  .eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--terracota); display: inline-block; }
+  .eyebrow::before { content: ""; width: 22px; height: 2px; flex: none; background: var(--terracota); display: inline-block; }
+  .eyebrow-texto { min-width: 0; }
   .hero h1 { font-size: clamp(32px, 4.6vw, 52px); line-height: 1.18; color: var(--ciruela-deep); max-width: 15ch; }
   .hero h1 em { font-style: normal; color: var(--terracota); }
   .hero p.dek { font-size: 18px; color: var(--text-faint); max-width: 46ch; margin-top: 22px; }
@@ -55,17 +56,16 @@
     .hero p.dek { font-size: 15.5px; margin-top: 14px; }
   }
   .hero-photo-wrap { position: relative; display: flex; justify-content: center; }
+  .hero-photo-wrap::before {
+    content: ""; position: absolute; width: 340px; height: 340px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,169,79,0.30), rgba(72,30,99,0.16) 55%, transparent 72%);
+    filter: blur(6px); z-index: 0;
+  }
   .hero-photo {
-    width: min(360px, 80vw); aspect-ratio: 1/1; border-radius: 50%; object-fit: cover;
-    border: 8px solid var(--cream); box-shadow: 0 30px 60px -20px rgba(60,25,45,0.35);
-    position: relative; z-index: 1;
+    width: min(360px, 82vw); height: auto; object-fit: contain;
+    filter: drop-shadow(0 26px 40px rgba(60,25,45,0.28));
+    position: relative; z-index: 1; display: block;
   }
-  .hero-ring {
-    position: absolute; inset: -18px; border-radius: 50%; border: 1.5px dashed rgba(212,169,79,0.55);
-    animation: girar 60s linear infinite;
-  }
-  @keyframes girar { to { transform: rotate(360deg); } }
-  @media (prefers-reduced-motion: reduce) { .hero-ring { animation: none; } }
 
   .btn-hero {
     display: inline-flex; align-items: center; gap: 9px;
@@ -76,6 +76,26 @@
     transition: transform 0.2s, box-shadow 0.2s;
   }
   .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 18px 32px -8px rgba(156,79,54,0.6); }
+
+  /* VIDEO */
+  section.video { padding: 0; margin-top: -4px; }
+  .wrap-video { max-width: 880px; }
+  .video-glow { position: relative; padding: 48px 48px 18px; }
+  @media (max-width: 720px) { .video-glow { padding: 28px 20px 10px; } }
+  .video-glow::before {
+    content: ""; position: absolute; inset: 0; z-index: 0; border-radius: 40px;
+    background:
+      radial-gradient(closest-side, rgba(212,169,79,0.6), transparent 72%) 50% 50% / 78% 78% no-repeat,
+      radial-gradient(closest-side, rgba(72,30,99,0.28), transparent 70%) 86% 80% / 46% 46% no-repeat;
+    filter: blur(30px);
+  }
+  .video-frame {
+    position: relative; z-index: 1;
+    aspect-ratio: 16/9; background: #1f0d2b; border-radius: 20px;
+    box-shadow: 0 0 1px rgba(60,25,45,0.1), 0 18px 40px rgba(60,25,45,0.25);
+    overflow: hidden; border: 5px solid var(--champan);
+  }
+  .video-frame video { display: block; width: 100%; height: 100%; object-fit: contain; }
 
   /* BANDS */
   .band { padding: 68px 0; }
@@ -202,7 +222,7 @@
   <header class="hero">
     <div class="wrap hero-layout">
       <div>
-        <p class="eyebrow">Psicología holística · Sexología · Sexualidad consciente</p>
+        <p class="eyebrow"><span class="eyebrow-texto">Psicología holística · Sexología · Sexualidad consciente</span></p>
         <h1>Tu energía sexual también se puede <em>sanar, equilibrar y expandir</em>.</h1>
         <p class="dek">Acompaño a mujeres y hombres a liberar bloqueos, romper culpas heredadas y reconectar con su placer — desde la sexología clínica, el Reiki y la sexualidad consciente.</p>
         <a class="btn-hero" href="https://wa.me/573003866079?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Deseo%20una%20sesi%C3%B3n%20con%20la%20sex%C3%B3loga%20y%20reikista%20Adriana%20Vargas%2C%20por%20favor" target="_blank" rel="noopener">
@@ -211,11 +231,27 @@
         </a>
       </div>
       <div class="hero-photo-wrap">
-        <div class="hero-ring"></div>
         <img class="hero-photo" src="adriana-foto-hero.webp" alt="Adriana Vargas, sexóloga">
       </div>
     </div>
   </header>
+
+  <section class="video" id="video">
+    <div class="wrap wrap-video" style="text-align: center; padding-bottom: 6px;">
+      <p class="eyebrow-sm" style="justify-content:center; width:100%"><span class="dash"></span>Antes de agendar</p>
+      <h2 class="tit">Escúchame antes de decidir</h2>
+      <p style="color: var(--text-faint); font-size: 15.5px; max-width: 56ch; margin: 0 auto 8px;">Elegir a tu terapeuta es una decisión íntima. Aquí te cuento cómo trabajo y por qué la sexualidad también se sana.</p>
+    </div>
+    <div class="wrap wrap-video">
+      <div class="video-glow">
+        <div class="video-frame" id="yt-adriana" data-yt="1xRspZr5Rvs" style="background-image:url('adriana-yt-cover.jpg'); background-size:cover; background-position:center; cursor:pointer;" onclick="reproducirYT(this)">
+          <button class="yt-play" aria-label="Reproducir video" style="position:absolute; inset:0; margin:auto; width:74px; height:74px; border-radius:50%; background:rgba(31,13,43,0.82); border:3px solid #fff; cursor:pointer;">
+            <svg viewBox="0 0 24 24" width="26" height="26" style="margin-left:3px;"><path fill="#fff" d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="band cream">
     <div class="wrap">
@@ -372,6 +408,16 @@
       </div>
     </div>
   </div>
+
+  <script>
+    function reproducirYT(box) {
+      var id = box.getAttribute('data-yt');
+      box.style.backgroundImage = 'none';
+      box.removeAttribute('onclick');
+      box.style.cursor = 'default';
+      box.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1" title="Video de Adriana Vargas" style="width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    }
+  </script>
 
   <script>
     // Los links de pago de Bold son de un solo uso — cada clic pide uno
