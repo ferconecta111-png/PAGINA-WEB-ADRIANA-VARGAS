@@ -166,6 +166,34 @@
   }
   .video-frame video { display: block; width: 100%; height: 100%; object-fit: contain; }
 
+  /* CARRUSEL DE VIDEOS (YouTube) — mismo patrón que usa Elizabeth */
+  .marquee {
+    margin-top: 20px; overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+  .marquee-track { display: flex; gap: 18px; width: max-content; animation: marquee-right 26s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee-right { from { transform: translateX(-50%); } to { transform: translateX(0%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+  .video-mini {
+    position: relative; flex: 0 0 360px; width: 360px; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden;
+    background: #000 center/cover no-repeat;
+    box-shadow: 0 2px 4px rgba(60,25,45,0.12), 0 18px 32px rgba(60,25,45,0.22); border: 4px solid var(--cream);
+    cursor: pointer;
+  }
+  @media (max-width: 480px) { .video-mini { flex-basis: 260px; width: 260px; } }
+  .video-mini iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .video-mini .yt-play {
+    position: absolute; inset: 0; margin: auto; width: 58px; height: 58px; border-radius: 50%; border: none;
+    background: linear-gradient(155deg, var(--terracota), var(--terracota-deep)); cursor: pointer;
+    box-shadow: 0 10px 22px -4px rgba(0,0,0,0.5);
+  }
+  .video-mini .yt-play::before {
+    content: ""; position: absolute; top: 50%; left: 54%; transform: translate(-50%, -50%);
+    border-style: solid; border-width: 10px 0 10px 16px; border-color: transparent transparent transparent #fff;
+  }
+
   /* BANDS */
   .band { padding: 68px 0; }
   @media (max-width: 640px) { .band { padding: 42px 0; } }
@@ -352,11 +380,24 @@
     </div>
     <div class="wrap wrap-video">
       <div class="video-glow">
-        <div class="video-frame" id="yt-adriana" data-yt="1xRspZr5Rvs" style="background-image:url('adriana-yt-cover.jpg'); background-size:cover; background-position:center; cursor:pointer;" onclick="reproducirYT(this)">
-          <button class="yt-play" aria-label="Reproducir video" style="position:absolute; inset:0; margin:auto; width:74px; height:74px; border-radius:50%; background:rgba(31,13,43,0.82); border:3px solid #fff; cursor:pointer;">
-            <svg viewBox="0 0 24 24" width="26" height="26" style="margin-left:3px;"><path fill="#fff" d="M8 5v14l11-7z"/></svg>
-          </button>
-        </div>
+        <div class="video-frame" id="yt-adriana"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow-sm"><span class="dash"></span>Más contenido</p>
+      <h2 class="tit">Conóceme en video</h2>
+    </div>
+    <div class="marquee">
+      <div class="marquee-track video-track">
+        <div class="video-mini" data-yt="1xRspZr5Rvs" style="background-image:url('adriana-yt-cover.jpg')" onclick="reproducirYT(this)"><button class="yt-play" aria-label="Reproducir video"></button></div>
+        <div class="video-mini" data-yt="cCQnrcOKv5g" style="background-image:url('adriana-yt-cover-2.jpg')" onclick="reproducirYT(this)"><button class="yt-play" aria-label="Reproducir video"></button></div>
+        <div class="video-mini" data-yt="3Ym91L00TwQ" style="background-image:url('adriana-yt-cover-3.jpg')" onclick="reproducirYT(this)"><button class="yt-play" aria-label="Reproducir video"></button></div>
+        <div class="video-mini" aria-hidden="true" data-yt="1xRspZr5Rvs" style="background-image:url('adriana-yt-cover.jpg')" onclick="reproducirYT(this)"><button class="yt-play" aria-label="Reproducir video"></button></div>
+        <div class="video-mini" aria-hidden="true" data-yt="cCQnrcOKv5g" style="background-image:url('adriana-yt-cover-2.jpg')" onclick="reproducirYT(this)"><button class="yt-play" aria-label="Reproducir video"></button></div>
+        <div class="video-mini" aria-hidden="true" data-yt="3Ym91L00TwQ" style="background-image:url('adriana-yt-cover-3.jpg')" onclick="reproducirYT(this)"><button class="yt-play" aria-label="Reproducir video"></button></div>
       </div>
     </div>
   </section>
