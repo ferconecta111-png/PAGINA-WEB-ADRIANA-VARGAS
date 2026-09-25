@@ -203,10 +203,40 @@
   }
   .quote-meb footer { margin-top: 10px; font-style: normal; font-size: 12.5px; font-weight: 700; color: var(--terracota-deep); }
 
-  /* MI HISTORIA */
-  .historia-text { max-width: 68ch; margin: 0 auto; }
-  .historia-text p { font-size: 16px; line-height: 1.65; margin: 0 0 18px; color: var(--text); }
-  .historia-text p.cierre { font-weight: 700; color: var(--ciruela-deep); font-size: 17px; }
+  /* MI HISTORIA — mismo diseño de "movimientos" que usa Elizabeth */
+  .historia-layout { display: flex; gap: 40px; align-items: flex-start; }
+  .historia-photo { flex: 0 0 200px; }
+  .historia-photo img {
+    width: 200px; height: 200px; border-radius: 50%; object-fit: cover; display: block;
+    border: 6px solid rgba(255,250,246,0.7); box-shadow: 0 18px 40px rgba(60,25,45,0.3);
+  }
+  .historia-card {
+    flex: 1; min-width: 0;
+    background: var(--cream); border-radius: 18px; padding: 34px; color: var(--text);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.12), 0 24px 44px rgba(60,25,45,0.22);
+  }
+  @media (max-width: 480px) { .historia-card { padding: 22px; } }
+  .historia-card > p { font-size: 15.5px; margin: 0 0 14px; color: var(--text); }
+  .historia-card b { color: var(--terracota-deep); }
+  .historia-movs { margin-top: 18px; padding-top: 4px; }
+  .mov-detalle { margin: 0 0 14px; }
+  .mov-detalle p { margin-top: 8px; font-size: 15.5px; line-height: 1.6; }
+  .mov-tit {
+    cursor: pointer; list-style: none; font-family: "Fraunces", Georgia, serif; font-size: 15px;
+    font-weight: 600; color: #fff; background: var(--ciruela); display: flex; align-items: center; gap: 8px;
+    padding: 11px 18px; border-radius: 999px; transition: background 0.18s, transform 0.18s;
+  }
+  .mov-tit::-webkit-details-marker { display: none; }
+  .mov-tit::after {
+    content: "▾"; font-size: 12px; margin-left: auto; flex: none;
+    transition: transform 0.2s ease; display: inline-block;
+  }
+  .mov-detalle[open] .mov-tit::after { transform: rotate(180deg); }
+  .mov-tit:hover { background: linear-gradient(155deg, var(--terracota), var(--terracota-deep)); transform: translateY(-2px); }
+  @media (max-width: 780px) {
+    .historia-layout { flex-direction: column; align-items: center; text-align: center; }
+    .historia-card { text-align: left; }
+  }
 
   /* PARA QUIEN */
   .lista-para {
@@ -362,18 +392,29 @@
     <div class="wrap">
       <p class="eyebrow-sm"><span class="dash"></span>Antes de seguir</p>
       <h2 class="tit">Mi historia</h2>
-      <p class="lede">No te voy a acompañar solo desde los libros.</p>
-      <div class="historia-text">
-        <p>Crecí en una familia que hoy puedo ver como maravillosa; sin embargo, existían conflictos importantes durante mi infancia y adolescencia en esta: impulsividad, sobre exigencia, posturas muy marcadas, celos entre otros que elijo no nombrar por respeto a ellos.</p>
-        <p>Dentro de toda mi historia fui una persona que creció sintiéndose insuficiente, con temor a marcar límites y con una hiperactivación del sistema nervioso cuando lo hacía. Crecí con una tendencia enorme al control, con temor a mostrar mi vulnerabilidad porque sentía que era debilidad; a pesar del control, cedía por miedo. Era hiperexigente conmigo, nada de lo que yo u otros hacían me parecía suficiente, bloqueé mis emociones hacia afuera, me volví además muy maternal con quienes me rodeaban poniendo las necesidades de otros por encima de las propias, buscaba mucho aprobación aunque me costaba reconocerlo, y en mis relaciones interpersonales salía una pequeña niña buscando sentirse amada.</p>
-        <p>En el fondo tenía miedo de no ser merecedora de amor, me comparaba mucho con otros, tenía miedo de hablar en público o de defender mis posturas, lo cual solo me generaba enojo y frustración porque internamente quería tener el control, pero no era capaz de defender mis posturas (sentía un miedo profundo a hacerlo). Mis emociones más predominantes eran en realidad el miedo y la tristeza, las cuales escondía detrás del enojo porque era "la emoción que me había ayudado a sobrevivir en mi entorno".</p>
-        <p>En el colegio fui objeto de bullying de diferentes maneras, aprendí incluso artes marciales para poder defenderme (mis papás me inscribían a todos los cursos que quería, eso se los agradezco). Tuve miedo incluso de aprender a nadar, huía de casi todo y en muchas ocasiones utilicé el llanto como manipulación, porque ese sí me permitía tenerlo — el real, no.</p>
-        <p>En mis relaciones interpersonales vivía una paradoja: era evitativa y, en ocasiones, muy apegada a las pocas personas con las que conseguía abrirme, convirtiéndome en alguien incluso permisiva en su momento.</p>
-        <p>Crecí además con dificultades en el área económica por creencias aprendidas como "el dinero no crece en los árboles", "no me siento a hacer dinero en el baño" o "el dinero representa un problema", entre muchas otras que fui descubriendo en el camino. En medio de todo esto llegué a tener al mismo tiempo 3 trabajos, una maestría y pareja, por la creencia de "la vida es dura" y "si quieres algo hay que esforzarse" (y no, no todas me las decían directamente; algunas simplemente las deduje por observación y el día a día). En el área laboral fue así durante mucho tiempo, hasta que un día me desmayé, como un llamado de atención de mi cuerpo — ya no podía más, pero yo quería una buena vida y pensé que así lo lograría. Hoy vivo una vida plena donde puedo confiar en mis dones y talentos, y recibir un pago por ello.</p>
-        <p>Tuve pocas amigas reales, muchas de ellas se molestaban cuando no hacía lo que querían (hoy puedo decir que tengo pocas, pero de excelente calidad). Hoy me he separado (sí, estuve casada), he cambiado de trabajo en variadas ocasiones, he vivido la muerte muy de cerca con un impacto enorme en mi vida, he adquirido responsabilidades para las cuales no me sentía lista, viví ansiedad y depresión… pero lo más importante: he trabajado mucho en mí para ser la persona que hoy soy.</p>
-        <p class="cierre">Y con certeza puedo decirte: si yo logré toda esta transformación, seguro que tú también puedes.</p>
-        <p>Así que como ves, no voy a acompañarte solo desde los libros — sé cómo se siente el dolor, el miedo, la tristeza, el enojo, la frustración. Transformé mis heridas en mis más grandes potencializadores, hice las paces con el personaje que creé para sobrevivir y hoy lo hago parte de mi vida usándolo a mi favor; aprendí a convertir a la mente en mi aliada y no en mi enemiga, y muchas cosas más que hoy me permiten ver la vida de otra manera.</p>
-        <p class="cierre">Y si tú quieres transformar la tuya, qué mejor que atravesar el camino acompañada de alguien que, además de conocimientos y herramientas, se ha dado la oportunidad de atravesar el suyo y no evadirlo.</p>
+      <div class="historia-layout">
+        <div class="historia-photo"><img loading="lazy" src="adriana-foto-bio.webp" alt="Adriana Vargas"></div>
+        <div class="historia-card">
+          <p><b>No te voy a acompañar solo desde los libros.</b></p>
+          <div class="historia-movs">
+            <details class="mov-detalle">
+              <summary class="mov-tit">Crecí aprendiendo a controlarlo todo</summary>
+              <p>Crecí en una familia que hoy puedo ver como maravillosa; sin embargo, existían conflictos importantes durante mi infancia y adolescencia: impulsividad, sobre exigencia, posturas muy marcadas, celos, entre otros que elijo no nombrar por respeto a ellos. Fui una persona que creció sintiéndose insuficiente, con temor a marcar límites y con una hiperactivación del sistema nervioso cuando lo hacía. Crecí con una tendencia enorme al control, con temor a mostrar mi vulnerabilidad porque sentía que era debilidad; a pesar del control, cedía por miedo. Era hiperexigente conmigo, bloqueé mis emociones hacia afuera, me volví muy maternal con quienes me rodeaban poniendo las necesidades de otros por encima de las propias, y en mis relaciones interpersonales salía una pequeña niña buscando sentirse amada.</p>
+            </details>
+            <details class="mov-detalle">
+              <summary class="mov-tit">Por dentro tenía miedo, aunque no lo mostrara</summary>
+              <p>En el fondo tenía miedo de no ser merecedora de amor, me comparaba mucho con otros, tenía miedo de hablar en público o de defender mis posturas — internamente quería tener el control, pero no era capaz de defenderlo. Mis emociones más predominantes eran en realidad el miedo y la tristeza, escondidas detrás del enojo, "la emoción que me había ayudado a sobrevivir en mi entorno". En el colegio fui objeto de bullying de diferentes maneras, aprendí artes marciales para poder defenderme, tuve miedo incluso de aprender a nadar, y en muchas ocasiones utilicé el llanto como manipulación, porque ese sí me permitía tenerlo — el real, no. En mis relaciones vivía una paradoja: era evitativa y, en ocasiones, muy apegada a las pocas personas con las que conseguía abrirme.</p>
+            </details>
+            <details class="mov-detalle">
+              <summary class="mov-tit">Aprendí a sobrevivir antes que a vivir</summary>
+              <p>Crecí con dificultades en el área económica por creencias aprendidas como "el dinero no crece en los árboles" o "el dinero representa un problema". Llegué a tener al mismo tiempo 3 trabajos, una maestría y pareja, por la creencia de que "la vida es dura" y "si quieres algo hay que esforzarse". En el área laboral fue así durante mucho tiempo, hasta que un día me desmayé, como un llamado de atención de mi cuerpo — ya no podía más, pero yo quería una buena vida y pensé que así lo lograría. Hoy vivo una vida plena donde puedo confiar en mis dones y talentos, y recibir un pago por ello.</p>
+            </details>
+            <details class="mov-detalle" style="margin-bottom: 0;">
+              <summary class="mov-tit">Por eso hoy te acompaño así</summary>
+              <p>Hoy me he separado (sí, estuve casada), he cambiado de trabajo en variadas ocasiones, he vivido la muerte muy de cerca, he adquirido responsabilidades para las cuales no me sentía lista, viví ansiedad y depresión… pero lo más importante: he trabajado mucho en mí para ser la persona que hoy soy. Transformé mis heridas en mis más grandes potencializadores, hice las paces con el personaje que creé para sobrevivir y aprendí a convertir a la mente en mi aliada y no en mi enemiga. Si yo logré toda esta transformación, seguro que tú también puedes. Y si quieres transformar la tuya, qué mejor que atravesar el camino acompañada de alguien que, además de conocimientos y herramientas, se ha dado la oportunidad de atravesar el suyo y no evadirlo.</p>
+            </details>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -456,7 +497,7 @@
           <h3>Sesión individual</h3>
           <p class="desc">Un primer encuentro para nombrar lo que sientes y empezar tu proceso.</p>
           <p style="font-family:'Fraunces',serif; font-size:22px; color:var(--ciruela-deep); margin:10px 0;">$61 USD</p>
-          <a class="btn-pkg-outline" href="https://wa.me/573003866079?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Deseo%20una%20sesi%C3%B3n%20con%20la%20sex%C3%B3loga%20y%20reikista%20Adriana%20Vargas%2C%20por%20favor" data-producto-bold="adriana_individual" target="_blank" rel="noopener">Agendar y pagar</a>
+          <a class="btn-pkg" href="https://wa.me/573003866079?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Deseo%20una%20sesi%C3%B3n%20con%20la%20sex%C3%B3loga%20y%20reikista%20Adriana%20Vargas%2C%20por%20favor" data-producto-bold="adriana_individual" target="_blank" rel="noopener">Agendar y pagar</a>
         </div>
         <div class="pkg-card destacado">
           <span class="badge">Más recomendado</span>
