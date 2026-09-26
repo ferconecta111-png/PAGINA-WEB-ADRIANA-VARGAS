@@ -24,7 +24,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -88,6 +88,10 @@
       grid-template-columns: 1fr; gap: 6px;
       grid-template-areas: "promesa" "foto" "detalle";
     }
+  }
+  .marca-nombre {
+    font-family: 'Alex Brush', cursive; font-weight: 400; font-size: clamp(46px, 7vw, 72px);
+    line-height: 1; color: var(--ciruela); margin: 0 0 6px; letter-spacing: 0.01em;
   }
   .eyebrow {
     display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700;
@@ -354,6 +358,7 @@
   <header class="hero">
     <div class="wrap hero-layout">
       <div class="hero-promesa">
+        <p class="marca-nombre">Adriana Vargas G</p>
         <p class="eyebrow"><span class="eyebrow-texto">Psicología Holística . Sexualidad plena . Terapia Reiki</span></p>
         <h1>Conecta con tu <em>esencia</em>, equilibra y potencia tu energía sexual. Con tu energía activamos tu poder y creamos tu realidad.</h1>
       </div>
