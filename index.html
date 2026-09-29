@@ -581,7 +581,7 @@
           <h3>Ceremonia Unión de Almas</h3>
           <p class="desc">Tu boda holística, con Adriana acompañando cada momento del ritual.</p>
           <p style="font-family:'Fraunces',serif; font-size:22px; color:var(--ciruela-deep); margin:10px 0;">$280 USD</p>
-          <a class="btn-pkg" href="https://wa.me/573003866079?text=Hola%2C%20quisiera%20agendar%20la%20Uni%C3%B3n%20de%20Almas%20(boda%20hol%C3%ADstica)%20con%20Adriana%20Vargas%20G%2C%20por%20favor" data-producto-bold="adriana_union_almas" target="_blank" rel="noopener">Agendar y pagar</a>
+          <a class="btn-pkg" href="https://wa.me/573003866079?text=Hola%2C%20quisiera%20agendar%20la%20Uni%C3%B3n%20de%20Almas%20(boda%20hol%C3%ADstica)%20con%20Adriana%20Vargas%20G%2C%20por%20favor" data-producto-bold="adriana_union_almas" data-producto-label="Unión de Almas — $280 USD" target="_blank" rel="noopener">Agendar y pagar</a>
           <a href="https://wa.me/573003866079?text=Hola%2C%20quisiera%20saber%20m%C3%A1s%20sobre%20la%20Uni%C3%B3n%20de%20Almas%20(boda%20hol%C3%ADstica)%20con%20Adriana%20Vargas%20G%2C%20por%20favor" target="_blank" rel="noopener" style="display:block; margin-top:10px; font-size:13.5px; color:var(--text-faint); text-decoration:underline;">Prefiero preguntar antes por WhatsApp</a>
         </div>
       </div>
@@ -598,14 +598,14 @@
           <h3>Sesión individual</h3>
           <p class="desc">Un primer encuentro para nombrar lo que sientes y empezar tu proceso.</p>
           <p style="font-family:'Fraunces',serif; font-size:22px; color:var(--ciruela-deep); margin:10px 0;">$61 USD</p>
-          <a class="btn-pkg" href="https://wa.me/573003866079?text=Hola%2C%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Deseo%20una%20sesi%C3%B3n%20con%20la%20Psic%C3%B3loga%2C%20Sex%C3%B3loga%20y%20Reikista%20Adriana%20Vargas%20G%2C%20por%20favor" data-producto-bold="adriana_individual" target="_blank" rel="noopener">Agendar y pagar</a>
+          <a class="btn-pkg" href="https://wa.me/573003866079?text=Hola%2C%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Deseo%20una%20sesi%C3%B3n%20con%20la%20Psic%C3%B3loga%2C%20Sex%C3%B3loga%20y%20Reikista%20Adriana%20Vargas%20G%2C%20por%20favor" data-producto-bold="adriana_individual" data-producto-label="Sesión individual — $61 USD" target="_blank" rel="noopener">Agendar y pagar</a>
         </div>
         <div class="pkg-card destacado">
           <span class="badge">Más recomendado</span>
           <h3>Paquete de 3 sesiones</h3>
           <p class="desc">El proceso completo: diagnóstico, liberación de bloqueos y sexualidad consciente.</p>
           <p style="font-family:'Fraunces',serif; font-size:22px; color:var(--ciruela-deep); margin:10px 0;">$183 USD</p>
-          <a class="btn-pkg" href="https://wa.me/573003866079?text=Hola%2C%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Deseo%20un%20paquete%20de%203%20sesiones%20con%20la%20Psic%C3%B3loga%2C%20Sex%C3%B3loga%20y%20Reikista%20Adriana%20Vargas%20G%2C%20por%20favor" data-producto-bold="adriana_paquete_x3" target="_blank" rel="noopener">Agendar y pagar</a>
+          <a class="btn-pkg" href="https://wa.me/573003866079?text=Hola%2C%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Deseo%20un%20paquete%20de%203%20sesiones%20con%20la%20Psic%C3%B3loga%2C%20Sex%C3%B3loga%20y%20Reikista%20Adriana%20Vargas%20G%2C%20por%20favor" data-producto-bold="adriana_paquete_x3" data-producto-label="Paquete de 3 sesiones — $183 USD" target="_blank" rel="noopener">Agendar y pagar</a>
         </div>
       </div>
     </div>
@@ -631,6 +631,7 @@
     <div style="background:#fffaf6; border-radius:16px; max-width:420px; width:100%; padding:28px 24px; position:relative; font-family:'Manrope',sans-serif;">
       <button type="button" id="modal-pago-cerrar" aria-label="Cerrar" style="position:absolute; top:12px; right:14px; background:none; border:none; font-size:22px; line-height:1; cursor:pointer; color:#7a6a72;">&times;</button>
       <h3 style="margin:0 0 6px 0; font-size:19px; color:#2d2129; font-family:'Fraunces',serif;">Antes de pagar</h3>
+      <p id="modal-pago-item" style="margin:0 0 14px 0; padding:10px 14px; background:#f4e3da; border-radius:10px; font-size:14.5px; font-weight:700; color:#9c4f36;"></p>
       <p style="margin:0 0 16px 0; font-size:13.5px; color:#7a6a72;">Déjanos tu nombre y WhatsApp por si necesitamos contactarte sobre tu pago.</p>
 
       <div id="modal-pago-form">
@@ -668,6 +669,7 @@
       var ENDPOINT_BOLD = 'https://panel-terapeutas.vercel.app/api/public/bold-link';
 
       var modal = document.getElementById('modal-pago');
+      var itemResumen = document.getElementById('modal-pago-item');
       var form = document.getElementById('modal-pago-form');
       var fallback = document.getElementById('modal-pago-fallback');
       var inputNombre = document.getElementById('modal-pago-nombre');
@@ -701,6 +703,7 @@
           ev.preventDefault();
           productoActual = btn.getAttribute('data-producto-bold');
           hrefRespaldo = btn.getAttribute('href');
+          itemResumen.textContent = btn.getAttribute('data-producto-label') || '';
           modal.style.display = 'flex';
         });
       });
