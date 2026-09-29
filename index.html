@@ -296,6 +296,13 @@
   /* TESTIMONIOS */
   .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   @media (max-width: 900px) { .testi-grid { grid-template-columns: 1fr; } }
+  .testi-fila { display: flex; gap: 18px; align-items: stretch; }
+  .testi-fila .testi-grid { flex: 1; }
+  .testi-video-fija { flex: none; width: 220px; }
+  .testi-video { flex-direction: column; align-items: stretch; gap: 10px; padding: 14px; }
+  .testi-video video { width: 100%; aspect-ratio: 478/850; border-radius: 12px; object-fit: cover; background: #000; display: block; }
+  .testi-video p.who { text-align: center; }
+  @media (max-width: 900px) { .testi-fila { flex-direction: column; } .testi-video-fija { align-self: center; } }
   .testi { background: var(--surface); border-radius: 20px; padding: 26px; box-shadow: 0 2px 4px rgba(60,25,45,0.06), 0 16px 30px -14px rgba(60,25,45,0.14); }
   .testi p.txt { font-family: "Fraunces", serif; font-style: italic; font-size: 16px; color: var(--ciruela-deep); margin: 0 0 16px; line-height: 1.5; }
   .testi p.who { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--terracota-deep); margin: 0; }
@@ -530,18 +537,23 @@
       <p class="eyebrow-sm"><span class="dash"></span>Lo que dicen quienes ya vivieron el proceso</p>
       <h2 class="tit">Testimonios reales</h2>
       <p class="lede">&nbsp;</p>
-      <div class="testi-grid">
-        <div class="testi">
-          <p class="txt">"He conectado full con ella y su guía desde el primer momento. He aprendido a usar poco a poco herramientas que han dado sentido y dirección a lo que quiero lograr y sanar. Súper recomendado."</p>
-          <p class="who">Isabel Barrero <span>· Estados Unidos</span></p>
+      <div class="testi-fila">
+        <div class="testi testi-video testi-video-fija">
+          <video controls preload="metadata" poster="testi-video-poster.jpg" playsinline><source src="testimonio-video-1.mp4" type="video/mp4"></video>
         </div>
-        <div class="testi">
-          <p class="txt">"Súper recomendada, una experiencia muy poderosa. Tiene una energía muy acogedora — gracias por ayudarme a entender tantas cosas y a evolucionar."</p>
-          <p class="who">Yudi Meneses <span>· Colombia</span></p>
-        </div>
-        <div class="testi">
-          <p class="txt">"Las sesiones fueron muy poderosas, reveladoras. Rompí mitos, me di cuenta de muchas creencias limitantes que tenía acerca de la sexualidad. Abriste mi mente y las herramientas me han funcionado."</p>
-          <p class="who">Lucy Portillo <span>· Honduras</span></p>
+        <div class="testi-grid">
+          <div class="testi">
+            <p class="txt">"He conectado full con ella y su guía desde el primer momento. He aprendido a usar poco a poco herramientas que han dado sentido y dirección a lo que quiero lograr y sanar. Súper recomendado."</p>
+            <p class="who">Isabel Barrero <span>· Estados Unidos</span></p>
+          </div>
+          <div class="testi">
+            <p class="txt">"Súper recomendada, una experiencia muy poderosa. Tiene una energía muy acogedora — gracias por ayudarme a entender tantas cosas y a evolucionar."</p>
+            <p class="who">Yudi Meneses <span>· Colombia</span></p>
+          </div>
+          <div class="testi">
+            <p class="txt">"Las sesiones fueron muy poderosas, reveladoras. Rompí mitos, me di cuenta de muchas creencias limitantes que tenía acerca de la sexualidad. Abriste mi mente y las herramientas me han funcionado."</p>
+            <p class="who">Lucy Portillo <span>· Honduras</span></p>
+          </div>
         </div>
       </div>
     </div>
