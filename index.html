@@ -106,38 +106,15 @@
     .hero h1 { font-size: clamp(26px, 7vw, 30px); max-width: none; }
     .hero p.dek { font-size: 15.5px; margin-top: 14px; }
   }
-  .hero-photo-wrap { grid-area: foto; position: relative; display: flex; justify-content: center; padding-bottom: 22px; }
-  @media (max-width: 860px) { .hero-photo-wrap { padding-bottom: 4px; } }
-  .hero-photo-wrap::before {
-    content: ""; position: absolute; width: 340px; height: 340px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(212,169,79,0.30), rgba(72,30,99,0.16) 55%, transparent 72%);
-    filter: blur(6px); z-index: 0;
-  }
-  .hero-photo-asiento {
-    position: absolute; left: 50%; bottom: 30px; transform: translateX(-50%);
-    width: 58%; height: 19%; min-height: 78px;
-    background: linear-gradient(160deg, rgba(212,169,79,0.9), rgba(193,105,74,0.92) 130%);
-    border-radius: 50%;
-    filter: blur(2px);
-    box-shadow: 0 18px 30px -12px rgba(60,25,45,0.38);
-    z-index: 0;
-  }
-  .hero-photo-sombra {
-    position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
-    width: 58%; height: 24px;
-    background: radial-gradient(closest-side, rgba(31,13,43,0.34), transparent 75%);
-    filter: blur(2px); z-index: 0;
-  }
+  .hero-photo-wrap { grid-area: foto; position: relative; display: flex; justify-content: center; padding-bottom: 8px; }
   .hero-photo {
-    width: min(470px, 92vw); height: auto; object-fit: contain;
-    filter: drop-shadow(0 26px 40px rgba(60,25,45,0.28));
+    width: min(340px, 82vw); aspect-ratio: 854/1140; object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px -14px rgba(60,25,45,0.35);
     position: relative; z-index: 1; display: block;
   }
   @media (max-width: 640px) {
-    .hero-photo { width: min(265px, 64vw); }
-    .hero-photo-wrap::before { width: 200px; height: 200px; }
-    .hero-photo-asiento { bottom: 16px; height: 15%; min-height: 46px; }
-    .hero-photo-sombra { height: 16px; }
+    .hero-photo { width: min(240px, 62vw); }
   }
 
   .btn-hero {
@@ -381,8 +358,6 @@
         <h1>Conecta con tu <em>esencia</em>, equilibra y potencia tu energía sexual. Con tu energía activamos tu poder y creamos tu realidad.</h1>
       </div>
       <div class="hero-photo-wrap">
-        <div class="hero-photo-sombra"></div>
-        <div class="hero-photo-asiento"></div>
         <img class="hero-photo" src="adriana-foto-hero.webp" alt="Adriana Vargas, sexóloga">
       </div>
       <div class="hero-detalle">
