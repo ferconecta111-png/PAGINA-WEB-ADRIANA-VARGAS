@@ -31,13 +31,13 @@
     --text: #2d2129;
     --text-faint: #7a6a72;
     --border: #ecdfd8;
-    --terracota: #c1694a;
-    --terracota-deep: #9c4f36;
+    --terracota: #d6471e;
+    --terracota-deep: #a82f0e;
     --terracota-tint: #f4e3da;
-    --ciruela: #481e63;
-    --ciruela-deep: #36164a;
-    --ciruela-soft: #e9e0ee;
-    --champan: #d4a94f;
+    --ciruela: #3b0f57;
+    --ciruela-deep: #280a3d;
+    --ciruela-soft: #e3d4ee;
+    --champan: #e0a000;
     --cream: #fffaf6;
   }
   * { box-sizing: border-box; }
@@ -53,11 +53,27 @@
   @media (max-width: 640px) { .wrap { padding: 0 20px; } }
   h1, h2, h3 { font-family: "Fraunces", Georgia, serif; text-wrap: balance; margin: 0; font-weight: 600; }
 
-  .hero {
-    background: radial-gradient(circle at 85% -10%, rgba(193,105,74,0.16), transparent 55%), linear-gradient(175deg, var(--cream), var(--bg) 140%);
-    padding: 56px 0 36px; text-align: center;
+  /* BARRA DE CONTADOR — fija arriba de todo */
+  .barra-contador {
+    position: sticky; top: 0; z-index: 800;
+    background: linear-gradient(135deg, var(--ciruela-deep), var(--ciruela));
+    padding: 9px 12px; text-align: center;
   }
-  @media (max-width: 640px) { .hero { padding: 34px 0 26px; } }
+  .barra-contador .wrap {
+    display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; max-width: 760px;
+  }
+  .barra-contador .texto { font-size: 12px; font-weight: 700; color: #f0e4f7; letter-spacing: 0.02em; }
+  .barra-contador .contador { display: flex; gap: 6px; }
+  .barra-contador .bloque { background: rgba(255,255,255,0.14); border-radius: 8px; padding: 4px 7px; min-width: 0; box-shadow: none; }
+  .barra-contador .num { font-family: "Fraunces", serif; font-size: 15px; color: #fff; font-variant-numeric: tabular-nums; line-height: 1; display: block; }
+  .barra-contador .unidad { font-size: 8px; text-transform: uppercase; letter-spacing: 0.04em; color: #d9c2e6; display: block; margin-top: 1px; }
+  @media (max-width: 420px) { .barra-contador .texto { font-size: 10.5px; } .barra-contador .num { font-size: 13px; } }
+
+  .hero {
+    background: radial-gradient(circle at 85% -10%, rgba(214,71,30,0.18), transparent 55%), linear-gradient(175deg, var(--cream), var(--bg) 140%);
+    padding: 40px 0 36px; text-align: center;
+  }
+  @media (max-width: 640px) { .hero { padding: 26px 0 26px; } }
   .eyebrow-sm {
     display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 700;
     letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 16px; color: var(--terracota-deep);
@@ -105,20 +121,6 @@
   .lista-check { list-style: none; padding: 0; margin: 0 auto; max-width: 56ch; }
   .lista-check li { display: flex; gap: 12px; margin-bottom: 14px; font-size: 15.5px; }
   .lista-check li::before { content: "✓"; color: var(--terracota); font-weight: 800; flex: none; }
-
-  /* CONTADOR */
-  .contador-wrap { text-align: center; }
-  .contador-label { font-size: 13.5px; color: var(--text-faint); margin-bottom: 14px; }
-  .contador { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-  .contador .bloque {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-    min-width: 70px; padding: 12px 8px; box-shadow: 0 10px 22px -14px rgba(60,25,45,0.3);
-  }
-  .contador .num {
-    font-family: "Fraunces", serif; font-size: clamp(22px, 6vw, 30px); color: var(--ciruela-deep);
-    font-variant-numeric: tabular-nums; display: block; line-height: 1;
-  }
-  .contador .unidad { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-faint); margin-top: 6px; display: block; }
 
   /* QUE TE VAS A LLEVAR */
   .llevar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 560px; margin: 0 auto; }
@@ -180,36 +182,32 @@
   }
   #popup-taller h3 { font-size: 20px; color: var(--ciruela-deep); margin-bottom: 10px; }
   #popup-taller p { font-size: 14.5px; color: var(--text-faint); margin: 0 0 18px; }
-
-  @media (max-width: 420px) {
-    .contador .bloque { min-width: 58px; padding: 10px 4px; }
-  }
 </style>
 </head>
 <body>
 
-  <header class="hero">
+  <div class="barra-contador">
     <div class="wrap">
-      <img class="hero-foto" src="adriana-foto-historia.webp" alt="Adriana Vargas, sexóloga">
-      <p class="eyebrow-sm"><span class="dash"></span>Taller en vivo · gratuito · cupo limitado</p>
-      <h1>Descubre el <em>PLACER</em> que te habita</h1>
-      <p class="dek">Un espacio en vivo de 2 horas para reconectar con tu cuerpo, tu deseo y tu derecho a sentir placer — sin culpa, a tu propio ritmo.</p>
-      <a class="btn-hero btn-cta" href="https://wa.me/573003866079?text=Hola%2C%20quiero%20mi%20lugar%20en%20el%20taller%20%22Descubre%20el%20PLACER%20que%20te%20habita%22%2C%20por%20favor" target="_blank" rel="noopener">Quiero mi lugar en el taller</a>
-      <p class="cupo-nota">Cupo limitado</p>
-    </div>
-  </header>
-
-  <section class="band tint">
-    <div class="wrap contador-wrap">
-      <p class="contador-label">El taller empieza en</p>
-      <div class="contador" id="contador">
+      <span class="texto" id="contador-texto">⏳ El taller empieza en:</span>
+      <div class="contador">
         <div class="bloque"><span class="num" id="ct-dias">00</span><span class="unidad">Días</span></div>
-        <div class="bloque"><span class="num" id="ct-horas">00</span><span class="unidad">Horas</span></div>
+        <div class="bloque"><span class="num" id="ct-horas">00</span><span class="unidad">Hrs</span></div>
         <div class="bloque"><span class="num" id="ct-min">00</span><span class="unidad">Min</span></div>
         <div class="bloque"><span class="num" id="ct-seg">00</span><span class="unidad">Seg</span></div>
       </div>
     </div>
-  </section>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <img class="hero-foto" src="adriana-foto-hero.webp" alt="Adriana Vargas, sexóloga" fetchpriority="high">
+      <p class="eyebrow-sm"><span class="dash"></span>Taller en vivo · gratuito · cupo limitado</p>
+      <h1>Descubre el <em>PLACER</em> que te habita</h1>
+      <p class="dek">Un espacio en vivo de 2 horas para reconectar con tu cuerpo, tu deseo y tu derecho a sentir placer — sin culpa, a tu propio ritmo.</p>
+      <a class="btn-hero btn-cta" href="https://wa.me/573003866079?text=Hola%2C%20quiero%20mi%20lugar%20en%20el%20taller%20%22Descubre%20el%20PLACER%20que%20te%20habita%22%2C%20por%20favor" target="_blank" rel="noopener">Quiero mi lugar en el taller</a>
+      <p class="cupo-nota">⚠ Cupo limitado — se cierra cuando se llene</p>
+    </div>
+  </header>
 
   <section class="band cream">
     <div class="wrap">
@@ -232,13 +230,14 @@
         <div class="llevar-card"><div class="icono">📝</div><p>Tu propio "plan de Placer" — una guía personal para seguir practicando.</p></div>
         <div class="llevar-card"><div class="icono">🤝</div><p>Un espacio en vivo, acompañada, sin juicios y entre mujeres viviendo lo mismo.</p></div>
       </div>
+      <p style="text-align:center; font-size:13.5px; color:var(--terracota-deep); font-weight:700; margin-top:22px;">El cupo es limitado a propósito — es un grupo pequeño para poder acompañarte de verdad, no un evento masivo.</p>
     </div>
   </section>
 
   <section class="band cream">
     <div class="wrap">
       <div class="con-foto">
-        <img src="adriana-foto-bio.webp" alt="Adriana Vargas">
+        <img src="adriana-foto-bio.webp" alt="Adriana Vargas" loading="lazy" decoding="async">
         <p>Te acompaño yo, <b>Adriana Vargas G</b> — psicóloga holística, sexóloga y terapeuta Reiki. Vengo acompañando a mujeres a liberar bloqueos y culpas heredadas, para que puedan vivir su sexualidad y su placer sin miedo ni juicio.</p>
       </div>
     </div>
@@ -262,7 +261,7 @@
         </div>
         <div class="testi-card">
           <p class="txt">"Adri es una excelente terapeuta, muy humana, empática y amorosa — cada sesión se siente como un espacio seguro de verdadero acompañamiento."</p>
-          <p class="who"><img src="adriana-testi-carolina.jpg" alt="Carolina Jaramillo" class="testi-avatar">Carolina Jaramillo</p>
+          <p class="who"><img src="adriana-testi-carolina.jpg" alt="Carolina Jaramillo" class="testi-avatar" loading="lazy" decoding="async">Carolina Jaramillo</p>
         </div>
       </div>
     </div>
@@ -320,7 +319,7 @@
         <h2>¿Lista para reconectar con tu placer?</h2>
         <p>No tienes que cargar sola con esto. Escríbeme y te confirmo tu lugar en el taller.</p>
         <a class="btn-hero btn-cta" href="https://wa.me/573003866079?text=Hola%2C%20quiero%20mi%20lugar%20en%20el%20taller%20%22Descubre%20el%20PLACER%20que%20te%20habita%22%2C%20por%20favor" target="_blank" rel="noopener">Quiero mi lugar en el taller</a>
-        <p class="cupo-nota">Cupo limitado</p>
+        <p class="cupo-nota">⚠ Cupo limitado — se cierra cuando se llene</p>
       </div>
     </div>
   </section>
@@ -357,7 +356,8 @@
         var dif = fecha - ahora;
         if (dif <= 0) {
           elDias.textContent = "00"; elHoras.textContent = "00"; elMin.textContent = "00"; elSeg.textContent = "00";
-          document.getElementById("contador-label") && (document.getElementById("contador-label").textContent = "¡El taller ya comenzó!");
+          var elTexto = document.getElementById("contador-texto");
+          if (elTexto) elTexto.textContent = "🔴 ¡El taller ya comenzó!";
           clearInterval(intervalo);
           return;
         }
