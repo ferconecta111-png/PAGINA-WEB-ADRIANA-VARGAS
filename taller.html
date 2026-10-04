@@ -79,6 +79,21 @@
   .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 18px 32px -8px rgba(156,79,54,0.6); }
   .cupo-nota { margin-top: 14px; font-size: 13px; color: var(--terracota-deep); font-weight: 700; letter-spacing: 0.02em; }
 
+  .hero-foto {
+    width: 150px; height: 150px; border-radius: 50%; object-fit: cover; object-position: top center;
+    border: 5px solid rgba(255,250,246,0.85); box-shadow: 0 16px 32px rgba(60,25,45,0.28);
+    display: block; margin: 0 auto 22px;
+  }
+
+  .con-foto { display: flex; align-items: center; gap: 36px; max-width: 640px; margin: 0 auto; }
+  @media (max-width: 640px) { .con-foto { flex-direction: column; text-align: center; gap: 22px; } }
+  .con-foto img {
+    width: 180px; height: 220px; flex: none; object-fit: cover; object-position: top center;
+    border-radius: 20px; box-shadow: 0 20px 40px -14px rgba(60,25,45,0.3);
+  }
+  .con-foto p { font-size: 15.5px; margin: 0; }
+  .con-foto b { color: var(--terracota-deep); }
+
   .band { padding: 52px 0; }
   @media (max-width: 640px) { .band { padding: 36px 0; } }
   .band.tint { background: linear-gradient(170deg, var(--ciruela-soft), var(--bg) 140%); }
@@ -115,11 +130,12 @@
 
   <header class="hero">
     <div class="wrap">
+      <img class="hero-foto" src="adriana-foto-hero.webp" alt="Adriana Vargas, sexóloga">
       <p class="eyebrow-sm"><span class="dash"></span>Taller en vivo · gratuito · cupo limitado</p>
       <h1>Descubre el <em>PLACER</em> que te habita</h1>
       <p class="dek">Un espacio en vivo de 2 horas para reconectar con tu cuerpo, tu deseo y tu derecho a sentir placer — sin culpa, a tu propio ritmo.</p>
       <a class="btn-hero" href="https://wa.me/573003866079?text=Hola%2C%20quiero%20mi%20lugar%20en%20el%20taller%20%22Descubre%20el%20PLACER%20que%20te%20habita%22%2C%20por%20favor" target="_blank" rel="noopener">Quiero mi lugar en el taller</a>
-      <p class="cupo-nota">Cupo limitado a 50 personas</p>
+      <p class="cupo-nota">Cupo limitado</p>
     </div>
   </header>
 
@@ -136,6 +152,15 @@
   </section>
 
   <section class="band cream">
+    <div class="wrap">
+      <div class="con-foto">
+        <img src="adriana-foto-historia.webp" alt="Adriana Vargas">
+        <p>Te acompaño yo, <b>Adriana Vargas G</b> — psicóloga holística, sexóloga y terapeuta Reiki. Vengo acompañando a mujeres a liberar bloqueos y culpas heredadas, para que puedan vivir su sexualidad y su placer sin miedo ni juicio.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band tint">
     <div class="wrap">
       <h2 class="tit">Detalles del taller</h2>
       <div class="detalle-grid">
@@ -159,13 +184,13 @@
     </div>
   </section>
 
-  <section class="band tint">
+  <section class="band cream">
     <div class="wrap">
       <div class="cta-final">
         <h2>¿Lista para reconectar con tu placer?</h2>
         <p>No tienes que cargar sola con esto. Escríbeme y te confirmo tu lugar en el taller.</p>
         <a class="btn-hero" href="https://wa.me/573003866079?text=Hola%2C%20quiero%20mi%20lugar%20en%20el%20taller%20%22Descubre%20el%20PLACER%20que%20te%20habita%22%2C%20por%20favor" target="_blank" rel="noopener">Quiero mi lugar en el taller</a>
-        <p class="cupo-nota">Cupo limitado a 50 personas</p>
+        <p class="cupo-nota">Cupo limitado</p>
       </div>
     </div>
   </section>
