@@ -285,6 +285,8 @@
   .testi p.txt { font-family: "Fraunces", serif; font-style: italic; font-size: 16px; color: var(--ciruela-deep); margin: 0 0 16px; line-height: 1.5; }
   .testi p.who { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--terracota-deep); margin: 0; }
   .testi p.who span { color: var(--text-faint); font-weight: 500; text-transform: none; letter-spacing: 0; }
+  .testi-who-foto { display: flex; align-items: center; gap: 10px; }
+  .testi-avatar { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; object-position: top center; flex: none; }
 
   /* PAQUETES */
   .pkg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 760px; margin: 0 auto; }
@@ -541,7 +543,7 @@
           </div>
           <div class="testi">
             <p class="txt">"Adri es una excelente terapeuta, muy humana, empática y amorosa — cada sesión se siente como un espacio seguro de verdadero acompañamiento. La recomiendo ampliamente."</p>
-            <p class="who">Carolina Jaramillo</p>
+            <p class="who testi-who-foto"><img src="adriana-testi-carolina.jpg" alt="Carolina Jaramillo" class="testi-avatar">Carolina Jaramillo</p>
           </div>
         </div>
       </div>
