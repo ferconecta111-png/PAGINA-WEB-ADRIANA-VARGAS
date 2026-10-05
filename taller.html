@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Descubre el PLACER que te habita — Taller con Adriana Vargas G</title>
-<meta name="description" content="Un espacio en vivo de 2 horas para reconectar con tu cuerpo, tu deseo y tu derecho a sentir placer, con Adriana Vargas G. Cupo limitado.">
+<meta name="description" content="Un espacio en vivo de 2 horas para reconectar con tu cuerpo, tu deseo y tu derecho a sentir placer, con Adriana Vargas G. Cupos de preventa limitados — $15 USD.">
 <link rel="canonical" href="https://terapeutaysexologaadrianavargas.com/taller.html">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CO">
 <meta property="og:site_name" content="Adriana Vargas G — Terapia Sexual">
 <meta property="og:title" content="Descubre el PLACER que te habita — Taller en vivo con Adriana Vargas G">
-<meta property="og:description" content="2 horas en vivo para reconectar con tu cuerpo, tu deseo y tu derecho a sentir placer. Cupo limitado.">
+<meta property="og:description" content="2 horas en vivo para reconectar con tu cuerpo, tu deseo y tu derecho a sentir placer. Cupos de preventa limitados — $15 USD.">
 <meta property="og:image" content="https://terapeutaysexologaadrianavargas.com/adriana-preview-enlace.png?v=2">
 <meta property="og:url" content="https://terapeutaysexologaadrianavargas.com/taller.html">
 <meta name="twitter:card" content="summary_large_image">
@@ -97,6 +97,15 @@
   .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 18px 32px -8px rgba(156,79,54,0.6); }
   .cupo-nota { margin-top: 14px; font-size: 13px; color: var(--terracota-deep); font-weight: 700; letter-spacing: 0.02em; }
 
+  .precio-box { display: flex; align-items: baseline; justify-content: center; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
+  .precio-tachado { font-family: "Fraunces", serif; font-size: 18px; color: var(--text-faint); text-decoration: line-through; }
+  .precio-actual { font-family: "Fraunces", serif; font-size: 32px; color: var(--ciruela-deep); font-weight: 600; }
+  .precio-tag {
+    background: var(--champan); color: #3a2a00; font-size: 11px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.05em; padding: 4px 10px; border-radius: 999px;
+  }
+  .precio-cupos { margin-top: 8px; font-size: 13px; color: var(--terracota-deep); font-weight: 700; }
+
   .hero-foto {
     width: 150px; height: 150px; border-radius: 50%; object-fit: cover; object-position: top center;
     border: 5px solid rgba(255,250,246,0.85); box-shadow: 0 16px 32px rgba(60,25,45,0.28);
@@ -141,6 +150,14 @@
   .testi-card p.who span { color: var(--text-faint); font-weight: 500; text-transform: none; letter-spacing: 0; }
   .testi-avatar { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; object-position: top center; flex: none; }
 
+  .testi-video-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; max-width: 640px; margin: 0 auto 24px; }
+  .testi-video-card {
+    background: var(--surface); border-radius: 16px; padding: 10px; flex: 1 1 140px; max-width: 160px;
+    box-shadow: 0 16px 32px -18px rgba(60,25,45,0.25); border: 1px solid var(--border);
+  }
+  .testi-video-card video { width: 100%; aspect-ratio: 478/850; border-radius: 10px; object-fit: cover; background: #000; display: block; }
+  .testi-video-card p.who { text-align: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--terracota-deep); margin: 8px 0 0; }
+
   .detalle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 620px; margin: 0 auto; text-align: center; }
   @media (max-width: 640px) { .detalle-grid { grid-template-columns: 1fr; } }
   .detalle-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 22px 16px; }
@@ -182,6 +199,9 @@
   }
   #popup-taller h3 { font-size: 20px; color: var(--ciruela-deep); margin-bottom: 10px; }
   #popup-taller p { font-size: 14.5px; color: var(--text-faint); margin: 0 0 18px; }
+
+  #modal-pago { display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(45,33,41,.55); align-items: center; justify-content: center; padding: 16px; }
+  #modal-pago .caja { background: #fffaf6; border-radius: 16px; max-width: 420px; width: 100%; padding: 28px 24px; position: relative; font-family: "Manrope", sans-serif; }
 </style>
 </head>
 <body>
@@ -201,11 +221,17 @@
   <header class="hero">
     <div class="wrap">
       <img class="hero-foto" src="adriana-foto-hero.webp" alt="Adriana Vargas, sexóloga" fetchpriority="high">
-      <p class="eyebrow-sm"><span class="dash"></span>Taller en vivo · gratuito · cupo limitado</p>
+      <p class="eyebrow-sm"><span class="dash"></span>Taller en vivo · cupos de preventa limitados</p>
       <h1>Descubre el <em>PLACER</em> que te habita</h1>
       <p class="dek">Un espacio en vivo de 2 horas para reconectar con tu cuerpo, tu deseo y tu derecho a sentir placer — sin culpa, a tu propio ritmo.</p>
-      <a class="btn-hero btn-cta" href="https://wa.me/573003866079?text=Hola%2C%20quiero%20mi%20lugar%20en%20el%20taller%20%22Descubre%20el%20PLACER%20que%20te%20habita%22%2C%20por%20favor" target="_blank" rel="noopener">Quiero mi lugar en el taller</a>
-      <p class="cupo-nota">⚠ Cupo limitado — se cierra cuando se llene</p>
+      <div class="precio-box">
+        <span class="precio-tachado">$27 USD</span>
+        <span class="precio-actual">$15 USD</span>
+        <span class="precio-tag">Preventa</span>
+      </div>
+      <p class="precio-cupos">Cupos de preventa limitados a los primeros 20 inscritos</p>
+      <a class="btn-hero btn-cta" href="https://wa.me/573003866079?text=Hola%2C%20quiero%20mi%20lugar%20en%20el%20taller%20%22Descubre%20el%20PLACER%20que%20te%20habita%22%2C%20por%20favor" data-producto-bold="adriana_taller_preventa" data-producto-label="Taller Descubre el PLACER que te habita (preventa) — $15 USD" target="_blank" rel="noopener">Quiero mi cupo de preventa</a>
+      <p class="cupo-nota">⚠ Precio de preventa válido hasta llenar los cupos</p>
     </div>
   </header>
 
@@ -246,6 +272,20 @@
   <section class="band tint">
     <div class="wrap">
       <h2 class="tit">Lo que viven quienes trabajan conmigo</h2>
+      <div class="testi-video-row">
+        <div class="testi-video-card">
+          <video controls preload="metadata" poster="testi-video-poster.jpg" playsinline><source src="testimonio-video-1.mp4" type="video/mp4"></video>
+          <p class="who">Wladimir Pabón</p>
+        </div>
+        <div class="testi-video-card">
+          <video controls preload="metadata" poster="testi-video-poster-2.jpg" playsinline><source src="testimonio-video-2-belen.mp4" type="video/mp4"></video>
+          <p class="who">Belén Guzmán</p>
+        </div>
+        <div class="testi-video-card">
+          <video controls preload="metadata" poster="testi-video-poster-3.jpg" playsinline><source src="testimonio-video-3-katherine.mp4" type="video/mp4"></video>
+          <p class="who">Katherine Díaz</p>
+        </div>
+      </div>
       <div class="testi-grid">
         <div class="testi-card">
           <p class="txt">"He conectado full con ella y su guía desde el primer momento. He aprendido a usar poco a poco herramientas que han dado sentido y dirección a lo que quiero lograr y sanar."</p>
@@ -310,6 +350,10 @@
         <h3>¿Y si no puedo conectarme justo a esa hora?</h3>
         <p>Es una experiencia en vivo, pensada para vivirse en el momento junto a otras mujeres — resérvate ese espacio solo para ti.</p>
       </div>
+      <div class="faq-item">
+        <h3>¿Por qué tiene un precio de preventa?</h3>
+        <p>El precio de preventa ($15 USD) es para quienes se comprometen con anticipación — después de llenar esos cupos, el valor pasa a su precio normal de $27 USD.</p>
+      </div>
     </div>
   </section>
 
@@ -317,9 +361,9 @@
     <div class="wrap">
       <div class="cta-final">
         <h2>¿Lista para reconectar con tu placer?</h2>
-        <p>No tienes que cargar sola con esto. Escríbeme y te confirmo tu lugar en el taller.</p>
-        <a class="btn-hero btn-cta" href="https://wa.me/573003866079?text=Hola%2C%20quiero%20mi%20lugar%20en%20el%20taller%20%22Descubre%20el%20PLACER%20que%20te%20habita%22%2C%20por%20favor" target="_blank" rel="noopener">Quiero mi lugar en el taller</a>
-        <p class="cupo-nota">⚠ Cupo limitado — se cierra cuando se llene</p>
+        <p>No tienes que cargar sola con esto. Asegura tu cupo de preventa antes de que se agote.</p>
+        <a class="btn-hero btn-cta" href="https://wa.me/573003866079?text=Hola%2C%20quiero%20mi%20lugar%20en%20el%20taller%20%22Descubre%20el%20PLACER%20que%20te%20habita%22%2C%20por%20favor" data-producto-bold="adriana_taller_preventa" data-producto-label="Taller Descubre el PLACER que te habita (preventa) — $15 USD" target="_blank" rel="noopener">Quiero mi cupo de preventa — $15 USD</a>
+        <p class="cupo-nota">⚠ Precio de preventa válido hasta llenar los cupos</p>
       </div>
     </div>
   </section>
@@ -334,10 +378,112 @@
     <div class="caja">
       <button type="button" id="popup-cerrar" aria-label="Cerrar">&times;</button>
       <h3>Espera 🌸</h3>
-      <p>El cupo para el taller es limitado y se están llenando los lugares. Si sientes que esto es para ti, no lo dejes para después.</p>
-      <a class="btn-hero btn-cta" style="width:100%; justify-content:center; margin-top:0;" href="https://wa.me/573003866079?text=Hola%2C%20quiero%20mi%20lugar%20en%20el%20taller%20%22Descubre%20el%20PLACER%20que%20te%20habita%22%2C%20por%20favor" target="_blank" rel="noopener">Quiero mi lugar en el taller</a>
+      <p>Los cupos de preventa ($15 USD) son limitados a los primeros 20 inscritos y se están llenando. Si sientes que esto es para ti, no lo dejes para después.</p>
+      <a class="btn-hero btn-cta" style="width:100%; justify-content:center; margin-top:0;" href="https://wa.me/573003866079?text=Hola%2C%20quiero%20mi%20lugar%20en%20el%20taller%20%22Descubre%20el%20PLACER%20que%20te%20habita%22%2C%20por%20favor" data-producto-bold="adriana_taller_preventa" data-producto-label="Taller Descubre el PLACER que te habita (preventa) — $15 USD" target="_blank" rel="noopener">Quiero mi cupo de preventa</a>
     </div>
   </div>
+
+  <div id="modal-pago">
+    <div class="caja">
+      <button type="button" id="modal-pago-cerrar" aria-label="Cerrar" style="position:absolute; top:12px; right:14px; background:none; border:none; font-size:22px; line-height:1; cursor:pointer; color:#7a6a72;">&times;</button>
+      <h3 style="margin:0 0 6px 0; font-size:19px; color:#2d2129; font-family:'Fraunces',serif;">Antes de pagar</h3>
+      <p id="modal-pago-item" style="margin:0 0 14px 0; padding:10px 14px; background:#f4e3da; border-radius:10px; font-size:14.5px; font-weight:700; color:#9c4f36;"></p>
+      <p style="margin:0 0 16px 0; font-size:13.5px; color:#7a6a72;">Déjanos tu nombre y WhatsApp por si necesitamos contactarte sobre tu pago.</p>
+
+      <div id="modal-pago-form">
+        <label style="display:block; font-size:13px; color:#2d2129; margin-bottom:4px;">Nombre completo</label>
+        <input id="modal-pago-nombre" type="text" style="width:100%; box-sizing:border-box; padding:10px 12px; border:1px solid #ecdfd8; border-radius:10px; margin-bottom:12px; font-size:16px;" />
+        <label style="display:block; font-size:13px; color:#2d2129; margin-bottom:4px;">WhatsApp (con código de país)</label>
+        <input id="modal-pago-telefono" type="tel" placeholder="+57 300 1234567" style="width:100%; box-sizing:border-box; padding:10px 12px; border:1px solid #ecdfd8; border-radius:10px; margin-bottom:4px; font-size:16px;" />
+        <p id="modal-pago-error" style="display:none; color:#c1694a; font-size:12.5px; margin:4px 0 0 0;"></p>
+        <button type="button" id="modal-pago-continuar" style="width:100%; margin-top:16px; padding:12px; border:none; border-radius:10px; background:#c1694a; color:#fffaf6; font-weight:700; font-size:15px; cursor:pointer;">Continuar a pagar</button>
+      </div>
+
+      <div id="modal-pago-fallback" style="display:none;">
+        <p style="font-size:14px; color:#2d2129; margin:0;">Se abrió una ventana nueva para pagar con tarjeta. Si tu banco la rechaza, escríbenos por WhatsApp y te ayudamos:</p>
+        <a href="https://wa.me/573003866079?text=Hola%20Adriana%2C%20mi%20banco%20rechaz%C3%B3%20el%20pago%2C%20%C2%BFme%20ayudas%3F" target="_blank" rel="noopener" style="display:block; text-align:center; width:100%; box-sizing:border-box; margin-top:14px; padding:12px; border:1px solid #481e63; border-radius:10px; background:#fff; color:#481e63; font-weight:700; font-size:15px; text-decoration:none;">Escribir por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Carrito de pago — mismo patron que oferta-taller.html e index.html: link
+    // de Bold de un solo uso, pedido nombre+telefono antes de abrir el pago.
+    (function () {
+      var ENDPOINT_BOLD = 'https://panel-terapeutas.vercel.app/api/public/bold-link';
+
+      var modal = document.getElementById('modal-pago');
+      var itemResumen = document.getElementById('modal-pago-item');
+      var form = document.getElementById('modal-pago-form');
+      var fallback = document.getElementById('modal-pago-fallback');
+      var inputNombre = document.getElementById('modal-pago-nombre');
+      var inputTelefono = document.getElementById('modal-pago-telefono');
+      var error = document.getElementById('modal-pago-error');
+      var btnContinuar = document.getElementById('modal-pago-continuar');
+      var btnCerrar = document.getElementById('modal-pago-cerrar');
+
+      var productoActual = null;
+      var hrefRespaldo = null;
+
+      function cerrarModal() {
+        modal.style.display = 'none';
+        form.style.display = 'block';
+        fallback.style.display = 'none';
+        error.style.display = 'none';
+        btnContinuar.disabled = false;
+        btnContinuar.textContent = 'Continuar a pagar';
+      }
+
+      function pedirLink(endpoint, datos) {
+        return fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(datos),
+        }).then(function (res) { return res.json(); });
+      }
+
+      document.querySelectorAll('[data-producto-bold]').forEach(function (btn) {
+        btn.addEventListener('click', function (ev) {
+          ev.preventDefault();
+          productoActual = btn.getAttribute('data-producto-bold');
+          hrefRespaldo = btn.getAttribute('href');
+          itemResumen.textContent = btn.getAttribute('data-producto-label') || '';
+          modal.style.display = 'flex';
+        });
+      });
+
+      btnCerrar.addEventListener('click', cerrarModal);
+      modal.addEventListener('click', function (ev) { if (ev.target === modal) cerrarModal(); });
+
+      btnContinuar.addEventListener('click', function () {
+        var nombre = inputNombre.value.trim();
+        var telefono = inputTelefono.value.trim();
+        if (!nombre || !telefono) {
+          error.textContent = 'Por favor completa tu nombre y WhatsApp.';
+          error.style.display = 'block';
+          return;
+        }
+        error.style.display = 'none';
+        btnContinuar.disabled = true;
+        btnContinuar.textContent = 'Preparando tu pago…';
+
+        var pestana = window.open('', '_blank');
+
+        pedirLink(ENDPOINT_BOLD, { producto: productoActual, nombre: nombre, telefono: telefono })
+          .then(function (data) {
+            var url = (data && data.url) ? data.url : hrefRespaldo;
+            if (pestana) { pestana.location = url; } else { window.location.href = url; }
+          })
+          .catch(function () {
+            if (pestana) { pestana.location = hrefRespaldo; } else { window.location.href = hrefRespaldo; }
+          })
+          .finally(function () {
+            form.style.display = 'none';
+            fallback.style.display = 'block';
+          });
+      });
+    })();
+  </script>
 
   <script>
     // Contador regresivo al taller — martes 20 de octubre 2026, 7:00pm Bogota (UTC-5)
