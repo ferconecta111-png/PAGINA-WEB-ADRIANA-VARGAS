@@ -52,6 +52,7 @@ src="https://www.facebook.com/tr?id=1413907460325740&ev=PageView&noscript=1"
   h1 { font-size: 23px; color: var(--ciruela-deep); line-height: 1.3; }
   p { font-size: 15px; color: var(--text-faint); line-height: 1.55; margin: 12px 0 0; }
   .portada-mini { width: 120px; height: 120px; border-radius: 16px; margin: 20px auto 0; display: block; object-fit: cover; box-shadow: 0 14px 28px -10px rgba(0,0,0,0.3); }
+  .reproductor { width: 100%; margin-top: 18px; border-radius: 999px; height: 40px; }
   .btn-descarga {
     display: flex; align-items: center; justify-content: center; gap: 10px;
     margin-top: 22px; background: linear-gradient(155deg, var(--terracota), var(--terracota-deep)); color: #fff;
@@ -84,9 +85,13 @@ src="https://www.facebook.com/tr?id=1413907460325740&ev=PageView&noscript=1"
     </div>
     <p class="eyebrow">Tu regalo está listo</p>
     <h1>Gracias — tu meditación ya te espera</h1>
-    <p>Descárgala y escúchala en un momento tranquilo, con audífonos si puedes, para sentir mejor los cuencos y la frecuencia de fondo.</p>
+    <p>Escúchala aquí mismo, en un momento tranquilo y con audífonos si puedes, para sentir mejor los cuencos y la frecuencia de fondo.</p>
 
     <img class="portada-mini" src="portada-meditacion-chakra-raiz.jpg" alt="Meditación del Chakra Raíz">
+
+    <audio class="reproductor" controls preload="metadata" src="meditacion-chakra-raiz-adriana.mp3">
+      Tu navegador no puede reproducir audio aquí — usa el botón de abajo para descargarla.
+    </audio>
 
     <a class="btn-descarga" id="btn-descarga" href="meditacion-chakra-raiz-adriana.mp3" download>
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
