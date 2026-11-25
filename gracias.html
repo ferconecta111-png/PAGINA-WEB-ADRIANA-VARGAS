@@ -83,5 +83,28 @@ src="https://www.facebook.com/tr?id=1413907460325740&ev=PageView&noscript=1"
     </a>
     <p class="wa-numero">+57 300 386 6079</p>
   </div>
+  <!-- Si Bold devuelve un pago NO aprobado (bold-tx-status distinto de "approved"), se muestra
+       este mensaje en lugar de "Pago confirmado". Sin parámetro, la página queda igual. (25-nov-2026)
+       Dato: 17 de 19 rechazos fueron tarjetas Visa DÉBITO, casi todas de EE. UU. -->
+  <div class="card" id="pago-no-aprobado" style="display:none;">
+    <p class="eyebrow">Tu pago no se completó</p>
+    <h1>No te preocupes, no se hizo ningún cobro.</h1>
+    <p>Muchas tarjetas <strong>débito</strong>, sobre todo de fuera de Colombia, no permiten pagos internacionales. Intenta de nuevo con una <strong>tarjeta de crédito</strong>, o escríbele a Adriana y te envía otra forma de pago.</p>
+    <a class="wa-btn" href="https://wa.me/573003866079?text=Hola%20Adriana%2C%20intent%C3%A9%20pagar%20mi%20sesi%C3%B3n%20y%20la%20tarjeta%20no%20pas%C3%B3.%20%C2%BFMe%20env%C3%ADas%20otra%20forma%20de%20pago%3F" target="_blank" rel="noopener">Escribir a Adriana por WhatsApp</a>
+    <p class="wa-numero">+57 300 386 6079</p>
+  </div>
+  <script>
+    (function () {
+      try {
+        var st = (new URLSearchParams(location.search).get('bold-tx-status') || '').toLowerCase();
+        if (st && st !== 'approved') {
+          var ok = document.querySelector('.card:not(#pago-no-aprobado)');
+          if (ok) ok.style.display = 'none';
+          document.getElementById('pago-no-aprobado').style.display = '';
+          document.title = 'Tu pago no se completó · Adriana Vargas';
+        }
+      } catch (e) {}
+    })();
+  </script>
 </body>
 </html>
