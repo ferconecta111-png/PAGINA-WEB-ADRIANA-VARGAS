@@ -12,6 +12,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1413907460325740');
+fbq('init', '1405429268075500'); // píxel nuevo de la cuenta publicitaria de Adriana (25-nov-2026)
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
@@ -93,7 +94,7 @@ src="https://www.facebook.com/tr?id=1413907460325740&ev=PageView&noscript=1"
         <p class="error" id="error-regalo"></p>
         <button id="btn-regalo" type="submit">Recibir mi meditación gratis</button>
       </form>
-      <p class="nota">Nada de spam — solo tu meditación y, de vez en cuando, algo útil de Adriana.</p>
+      <p class="nota">Nada de spam — solo tu meditación y, de vez en cuando, algo útil de Adriana.<br>Al enviar aceptas la <a href="privacidad.html" target="_blank" rel="noopener" style="color:#9c4f36;">política de privacidad</a>.</p>
     </div>
   </div>
 
@@ -103,6 +104,11 @@ src="https://www.facebook.com/tr?id=1413907460325740&ev=PageView&noscript=1"
       var form = document.getElementById('form-regalo');
       var error = document.getElementById('error-regalo');
       var btn = document.getElementById('btn-regalo');
+      function utms() {
+        var q = new URLSearchParams(window.location.search), o = {};
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(function (k) { if (q.get(k)) o[k] = q.get(k).slice(0, 100); });
+        return o;
+      }
 
       form.addEventListener('submit', function (ev) {
         ev.preventDefault();
@@ -117,13 +123,14 @@ src="https://www.facebook.com/tr?id=1413907460325740&ev=PageView&noscript=1"
         fetch(ENDPOINT, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ producto: 'adriana_meditacion_chakra_raiz', nombre: nombre, email: email, whatsapp: whatsapp }),
+          body: JSON.stringify({ producto: 'adriana_meditacion_chakra_raiz', nombre: nombre, email: email, whatsapp: whatsapp, utm: utms() }),
         })
           .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
           .then(function (r) {
             if (!r.ok) throw new Error((r.data && r.data.error) || 'No se pudo procesar.');
-            if (typeof fbq === 'function') fbq('track', 'Lead');
-            window.location.href = r.data.redirectUrl || 'gracias-meditacion.html';
+            if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'Meditación chakra raíz' });
+            // pequeña espera para que el evento Lead alcance a salir antes de cambiar de página
+            setTimeout(function () { window.location.href = r.data.redirectUrl || 'gracias-meditacion.html'; }, 500);
           })
           .catch(function (e) {
             error.textContent = e.message || 'Algo falló. Intenta de nuevo en un momento.';
@@ -134,5 +141,6 @@ src="https://www.facebook.com/tr?id=1413907460325740&ev=PageView&noscript=1"
       });
     })();
   </script>
+  <script src="https://panel-terapeutas.vercel.app/track.js" data-sitio="adriana" data-endpoint="https://panel-terapeutas.vercel.app/api/track"></script>
 </body>
 </html>
